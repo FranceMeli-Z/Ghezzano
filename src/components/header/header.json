@@ -1,0 +1,34 @@
+{
+  "props" : {
+    "logoUrl" : "assets/img/GhezzanoLogo.png",
+    "logo2Url" : "assets/img/ShortLogoGreen.png",
+    "logo3Url" : "assets/img/LogoFullPielle-menu.svg",
+    "loginUrl" : "#login",
+    "menuItems" : [
+      {
+        "title" : "Menu entry",
+        "url" : "#"
+      },
+      {
+        "title" : "Menu entry",
+        "url" : "#"
+      },
+      {
+        "title" : "Menu entry",
+        "url" : "#"
+      },
+      {
+        "title" : "Menu entry",
+        "url" : "#"
+      },
+            {
+        "title" : "Menu entry",
+        "url" : "#"
+      },
+      {
+        "title" : "Menu entry",
+        "url" : "#"
+      }
+    ]
+  }
+}

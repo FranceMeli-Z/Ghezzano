@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+$component: componentClass("modsection1");
+
+.#{$component} {
+
+&__listing--item {
+  min-height: 52px;
+}
+}

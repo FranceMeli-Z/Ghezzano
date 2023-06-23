@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@import "../abstracts/variables";
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$zaux-helper-name: "size";
+
+
+// //min-width
+
+
+//min height
+.mih-viewport {
+  min-height: 200px;
+}
+
+//max width
+.maw-f526 {
+  max-width: 526px;
+}
+.maw-f628 {
+  max-width: 628px;
+}
+.maw-f748 {
+  max-width: 748px;
+}
+.maw-f848 {
+  max-width: 848px;
+}
+
+//max height
+.mah-f480 {
+  max-height: 480px;
+}
+.mah-f725 {
+  max-height: 725px;
+}
+.mah-f800 {
+  max-height: 800px;
+}
+.mah-f833 {
+  max-height: 833px;
+}
+
+// //Custom Time Box
+
+.zaux-#{$zaux-helper-name}-highlight-img {
+  height: 238px;
+  width: 238px;
+  @include media-breakpoint-down(md) {
+    height: 96px;
+    width: 96px;
+  }
+}
+
+.zaux-#{$zaux-helper-name}-viewportbox {
+  min-height: calc( 100vh - 120px);
+  @include media-breakpoint-down(md) {
+    min-height: calc( 100vh - 72px);
+  }
+}
+
+
+
+

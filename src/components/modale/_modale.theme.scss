@@ -1,0 +1,28 @@
+@import "../../assets/scss/components/base";
+
+$component: componentClass("modale");
+
+.#{$component} {
+
+  background-color: tokenColor(set1,blackgreen);
+
+  .#{$component}__tab {
+    &--item {
+      border-bottom: 1px solid tokenColor(set1,yellow1);
+      &.active {
+        color: tokenColor(set1,yellow1);
+        &::after {
+          height: 4px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          content: '';
+          background-color: tokenColor(set1,yellow1);
+          transition: all .3s ease-out;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+//@import "../../assets/scss/components/tokens/img.style";
+
+$component: componentClass("img");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-img-style-tokens)){
+    $cmp-tokens : $zaux-img-style-tokens;
+}
+
+.#{$component} {
+
+  display: block;
+  line-height: 0;
+
+}

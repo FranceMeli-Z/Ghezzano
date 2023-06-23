@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/tokens/textblock.style";
+
+$component: componentClass("textblock");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-textblock-style-tokens)){
+    $cmp-tokens : $zaux-textblock-style-tokens;
+}
+
+.#{$component} {
+
+&__listing {
+  &--item {
+    min-height: 52px;
+    padding-right: 24px;
+    padding-bottom: 0;
+    padding-top: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    @include media-breakpoint-up(sm){
+      padding-bottom: 18px;
+    }
+
+    &--download {
+      font-size: 16px;
+      font-weight: 300;
+      @include media-breakpoint-down(sm){
+        text-align: right;
+        line-height: 52px;
+      }
+    }
+  }
+}
+&__img {
+  @include media-breakpoint-down(md) {
+    margin: 0 -16px;
+  }
+}
+}

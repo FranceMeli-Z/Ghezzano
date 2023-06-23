@@ -1,0 +1,14 @@
+{
+    "title" : "Display title here",
+    "subtitle" : "Display subtitle here",
+    "abstract" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ex mi, tincidunt non odio non, iaculis interdum purus. Sed bibendum enim tarus majore camut.",
+    "img" : {
+      "mainUrl" : "assets/img/Doctor.png",
+      "sourceList" : [
+          {
+            "url" : "../assets/img/Doctor.png",
+            "url2x" : "../assets/img/Doctor.png"
+          }
+      ]
+    }
+}

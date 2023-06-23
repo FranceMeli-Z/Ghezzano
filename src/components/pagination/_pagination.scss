@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("pagination");
+
+.#{$component} {
+  margin: auto;
+  text-align: center;
+
+  & .wp-pagenavi {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    & .page, & span, & a {
+      border: none;
+    }
+    & .pages {
+      border: none;
+    }
+  }
+  & a, & span.extend {
+    width: 32px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    margin: 0 8px 0 0;
+    padding: 0;
+    border-radius: 4px;
+  }
+  & .current {
+    width: 32px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    margin: 0 8px 0 0;
+    padding: 0;
+    border-radius: 4px;
+  }
+
+  & .previouspostslink {
+
+    background-image: url('../../assets/icon/icozaux1/SVG/arrow-left.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 32px;
+    background-size: 24px;
+    &:hover {
+      background-image: url('../../assets/icon/icozaux1/SVG/arrow-left-y.svg');
+    }
+  }
+
+  & .nextpostslink {
+    background-image: url('../../assets/icon/icozaux1/SVG/arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 32px;
+    background-size: 24px;
+    &:hover {
+      background-image: url('../../assets/icon/icozaux1/SVG/arrow-right-y.svg');
+    }
+  }
+
+  & a.last, & a.first {
+    width: auto;
+  }
+
+}

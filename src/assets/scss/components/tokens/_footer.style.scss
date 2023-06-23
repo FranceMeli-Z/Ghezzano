@@ -1,0 +1,15 @@
+$zaux-footer-style-tokens:(
+  layout: (
+    css-cmp-bordertopwidth: 4px
+  ),
+  theme-light1: (
+    color-cmp-bg: tokenColor( set1, darkgrey ),
+    color-cmp-text: tokenColor('default','white'),
+    color-footer-row1-borderbottom: tokenColor('set1','white1'),
+    color-footer-credits-bg: tokenColor('set1',lightblue),
+    color-footer-credits-text: tokenColor('set1','darkblue'),
+    color-social-item: tokenColor('set1','white1'),
+    color-cmp-bordertop: tokenColor('set1','color6'),
+    color-footer-credits-icon: tokenColor('set1','color6')
+  )
+);

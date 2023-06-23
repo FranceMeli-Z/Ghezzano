@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+$component: componentClass("footer");
+$cmp-tokens: ();
+
+@if ($zaux-footer-style-tokens){
+    $cmp-tokens : $zaux-footer-style-tokens;
+}
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+.#{$component} {
+
+    &__inner {
+      background-color: tokenColor(set1, darkgreen);
+      color: getCmpToken($cmp-tokens, 'color-cmp-text', tokenColor('default', 'white'), 'theme-light1');
+    }
+
+    &__credits {
+        background-color: #1C1F1E;
+    }
+
+}

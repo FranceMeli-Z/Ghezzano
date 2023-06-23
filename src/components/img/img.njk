@@ -1,0 +1,45 @@
+{# Imports components #}
+{% macro content(obj) %}
+
+    {% set componentClassName = 'c-img' %}
+    {% set configDefault = {
+        "className": [""],
+        "imgClassName": [""]
+    } %}
+
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+    {# Image setup #}
+    {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+    {% set _imgClassName = [] | mergeArray(obj.imgClassName or configDefault.imgClassName) %}
+    {% set mainSrc = obj.mainSrc or '' %}
+    {% set imgHeight = obj.imgHeight or '' %}
+    {% set imgWidth = obj.imgWidth or '' %}
+    {% set srcAttrValue = "srcset" %}
+    {% set srcSetAttrValue = "srcset" %}
+    {% set lazyLoad = obj.lazyLoad or false %}
+
+    {% if lazyload %}
+        {% set srcAttrValue = "data-srcset" %}
+        {% set srcSetAttrValue = "data-srcset" %}
+    {% endif %}
+
+    <picture class="{{_className | join(" ") | trim}}">
+        {% for media in sourceList %}
+            <source
+                media="(min-width: {{token_breakpoints[media.breakpoint]}})"
+                {{srcSetAttrValue}}="{{media.url}} 1x, {{media.url2x}} 2x"
+            >
+        {% endfor %}
+
+        <img
+            class="{{_imgClassName | join(" ") | trim}}"
+            {% if imgHeight != '' %}height="{{imgHeight}}"{% endif %}
+            {% if imgWidth != '' %}width="{{imgWidth}}"{% endif %}
+            {% if mainSrc != '' %} {{srcAttrValue}}="{{obj.mainSrc}}" {%endif%}
+            {% if obj.imgAlt %} alt="{{obj.imgAlt}}" {% endif %}
+
+        />
+    </picture>
+
+{% endmacro %}

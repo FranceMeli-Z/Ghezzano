@@ -1,0 +1,105 @@
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/img/img.njk' as Img %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-footer' %}
+
+  <footer class="{{componentClassName}} {{componentClassName}}--light zaux-theme--dark1">
+    <div class="{{componentClassName}}__inner container-l position-relative">
+      <div class="{{componentClassName}}__content c-wrapper--w1">
+        <div class="{{componentClassName}}__row1 border-bottom-lightblue d-flex justify-content-between align-items-center position-relative">
+          <div class="{{componentClassName}}__nav">
+            <nav>
+              <ul class="">
+                <li><a href="#Info" data-menu-value="Info">Info</a></li>
+                <li><a href="#Tipologie" data-menu-value="Tipologie">Tipologie</a></li>
+                <li><a href="#Appuntamento" data-menu-value="Appuntamento">Richiedi un appuntamento</a></li>
+              </ul>
+            </nav>
+            <div class="{{componentClassName}}__hamburger">
+              <button aria-label="Apri/chiudi menu" class="{{componentClassName}}__hamburger--btn c-menu__btn--open" type="button">
+                <span class="{{componentClassName}}__hamburger--inner">
+                  <span class="{{componentClassName}}__hamburger--line {{componentClassName}}__hamburger--line--1"></span>
+                  <span class="{{componentClassName}}__hamburger--line {{componentClassName}}__hamburger--line--2"></span>
+                  <span class="{{componentClassName}}__hamburger--line {{componentClassName}}__hamburger--line--3"></span>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="{{componentClassName}}__logo">
+            <a href="home.html" rel="home" class="d-inline-block">
+                  <picture class="c-img">
+                      <img src="{{component_footer.props.logo.img.src}}" width="242" height="14" title="{{app.title}}" alt="Logo Ghezzano">
+                    </picture>
+            </a>
+          </div>
+          <div class="{{componentClassName}}__infobtn">
+            <a href="#defaultLink" class="{{componentClassName}}__infobtn--tel c-btn c-btn--primary-dark c-btn1 c-btn1--has-icon c-btn1--size-m">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-md"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "phone2"
+                  })
+                }}
+                <span class="c-btn__label ps-2">(+39) 050 985232</span>
+              </span>
+                <!-- .c-btn__inner -->
+          </a>
+          <a href="#defaultLink" class="{{componentClassName}}__infobtn--brochure c-btn c-btn--primary-dark c-btn1 c-btn1-res-nolabel c-btn1--has-icon c-btn1--size-m">
+            <span class="c-btn__inner d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": ["c-icon-size-md"],
+                  "iconFamily": "icozaux1",
+                  "iconName": "download"
+                })
+              }}
+              <span class="c-btn__label ps-2">Brochure</span>
+              </span>
+                  <!-- .c-btn__inner -->
+          </a>
+          </div>
+        </div>
+        <div class="{{componentClassName}}__row2 pt-8 pb-6">
+          <div class="{{componentClassName}}__row2--logo text-center mb-6">
+              <a href="home.html" rel="home" class="d-inline-block">
+                  <picture class="c-img">
+                      <img src="assets/img/LogoEdifor.png" width="56" height="96" title="{{app.title}}" alt="Edifor">
+                    </picture>
+              </a>
+            </div>
+          <div class="{{componentClassName}}__row2--info text-center">
+            <ul>
+              <li><a href="" class="pe-6">info@ghezzanoresidence.it</a></li>
+              <li><a href="" class="pe-6">Via A. Bellatalla10, 56121 Ospedaletto (Pisa)</a></li>
+              <li><a href="">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="{{componentClassName}}__credits position-relative container-l">
+      <div class="c-wrapper--w1">
+          <div class="{{componentClassName}}__credits--inner">
+            <div class="c-typo-fs-3 pe-3">
+              <span>© 2023  |  EDIFOR srl</span>
+            </div>
+            <div class="{{componentClassName}}__credits-icon">
+               <a class="pb-0" href="#linkLogo" title="Zaki - Creative Digital Agency">
+                <span class="visually-hidden">
+                  {{app.title}}
+                </span>
+               <picture class="c-img">
+                  <img src="/assets/img/zaki-credits-y.svg" width="78" height="48" alt="Zaki - Creative Digital Agency">
+                </picture>
+              </a>
+          </div>
+          </div>
+        </div>
+    </div>
+  </footer>
+  <!-- .{{componentClassName}} -->
+{% endmacro %}

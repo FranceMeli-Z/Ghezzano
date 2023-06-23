@@ -1,0 +1,429 @@
+{
+  "props": {
+    "panels": [
+      {
+        "level": "1",
+        "id": "1",
+        "nav": {
+          "items": [
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "About",
+              "labelClassName": "",
+              "href": "#",
+              "child": "yes",
+              "targetPanelId": "2",
+              "childId": "2"
+            },
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "Dipartimenti e Lab",
+              "labelClassName": "",
+              "href": "#",
+              "child": "yes",
+              "targetPanelId": "3",
+              "childId": "3"
+            },
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "Servizi",
+              "labelClassName": "zaux-show-on-sidebar-active",
+              "href": "#",
+              "child": "yes",
+              "targetPanelId": "7",
+              "childId": "7"
+            },
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "Corporate",
+              "labelClassName": "zaux-show-on-sidebar-active",
+              "href": "#",
+              "child": "yes",
+              "targetPanelId": "11",
+              "childId": "11"
+            }
+          ]
+        }
+      },
+      {
+        "level": "2",
+        "id": "2",
+        "breadcrumbTitle": "About",
+        "contentRel": "t1",
+        "nav": {
+          "items": [
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "Profilo",
+              "labelClassName": "",
+              "href": "#"
+            },
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "Approccio e valori",
+              "labelClassName": "",
+              "href": "#"
+            },
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "Impegno",
+              "labelClassName": "",
+              "href": "#"
+            },
+            {
+              "className": "",
+              "showLabel": true,
+              "label": "Team",
+              "labelClassName": "",
+              "href": "#"
+            }
+          ]
+        }
+      },
+        {
+              "level": "2",
+              "id": "3",
+              "contentRel": "t2",
+              "breadcrumbTitle": "Dipartimenti e Lab",
+              "nav": {
+                "items": [
+                  {
+                    "className": "",
+                    "showLabel": true,
+                    "label": "Dipartimenti",
+                    "labelClassName": "",
+                    "href": "#",
+                    "child": "yes",
+                    "targetPanelId": "4",
+                    "childId": "4",
+                    "listChild": [ {
+
+                      "className": "",
+                      "showLabel": true,
+                      "label": "Customer Service",
+                      "labelClassName": "",
+                      "href": "#"
+                    },
+                    {
+                      "className": "",
+                      "showLabel": true,
+                      "label": "Controllo qualità",
+                      "labelClassName": "",
+                      "href": "#"
+                    },
+                    {
+                      "className": "",
+                      "showLabel": true,
+                      "label": "Ricerca e sviluppo",
+                      "labelClassName": "",
+                      "href": "#"
+                    }
+                    ]
+                  },
+                  {
+                    "className": "",
+                    "showLabel": true,
+                    "label": "Laboratori",
+                    "labelClassName": "",
+                    "href": "",
+                    "child": "yes",
+                    "targetPanelId": "4",
+                    "childId": "5",
+                    "listChild": [
+                      {
+                        "className": "",
+                        "showLabel": true,
+                        "label": "Customer Service",
+                        "labelClassName": "",
+                        "href": "#"
+                      },
+                      {
+                        "className": "",
+                        "showLabel": true,
+                        "label": "Controllo qualità",
+                        "labelClassName": "",
+                        "href": "#"
+                      },
+                      {
+                        "className": "",
+                        "showLabel": true,
+                        "label": "Ricerca e sviluppo",
+                        "labelClassName": "",
+                        "href": "#"
+                      }
+                    ]
+                  },
+                  {
+                    "className": "",
+                    "showLabel": true,
+                    "label": "Accreditamenti",
+                    "labelClassName": "",
+                    "href": "#",
+                    "child": "yes",
+                    "targetPanelId": "4",
+                    "childId": "6",
+                    "listChild": [
+                      {
+                        "className": "",
+                        "showLabel": true,
+                        "label": "Customer Service",
+                        "labelClassName": "",
+                        "href": "#"
+                      },
+                      {
+                        "className": "",
+                        "showLabel": true,
+                        "label": "Controllo qualità",
+                        "labelClassName": "",
+                        "href": "#"
+                      },
+                      {
+                        "className": "",
+                        "showLabel": true,
+                        "label": "Ricerca e sviluppo",
+                        "labelClassName": "",
+                        "href": "#"
+                      }
+                    ]
+                  }
+                ]
+              }
+        },
+        {
+          "level": "2",
+          "id": "7",
+          "breadcrumbTitle": "Servizi",
+          "nav": {
+            "items": [
+              {
+                "className": "",
+                "showLabel": true,
+                "label": "Specializzazioni",
+                "labelClassName": "",
+                "href": "#",
+                "child": "yes",
+                "targetPanelId": "8",
+                "childId": "8",
+                "listChild": [{
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Customer Service",
+                  "labelClassName": "",
+                  "href": "#"
+                },
+                {
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Controllo qualità",
+                  "labelClassName": "",
+                  "href": "#"
+                },
+                {
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Ricerca e sviluppo",
+                  "labelClassName": "",
+                  "href": "#"
+                }]
+              },
+              {
+                "className": "",
+                "showLabel": true,
+                "label": "Ricerca e sviluppo",
+                "labelClassName": "",
+                "href": "",
+                "child": "yes",
+                "targetPanelId": "9",
+                "childId": "9",
+                "listChild": [{
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Customer Service",
+                  "labelClassName": "",
+                  "href": "#"
+                },
+                {
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Controllo qualità",
+                  "labelClassName": "",
+                  "href": "#"
+                },
+                {
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Ricerca e sviluppo",
+                  "labelClassName": "",
+                  "href": "#"
+                }]
+              },
+              {
+                "className": "",
+                "showLabel": true,
+                "label": "Consulenza",
+                "labelClassName": "",
+                "href": "#",
+                "child": "yes",
+                "targetPanelId": "10",
+                "childId": "10",
+                "listChild": [{
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Customer Service",
+                  "labelClassName": "",
+                  "href": "#"
+                },
+                {
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Controllo qualità",
+                  "labelClassName": "",
+                  "href": "#"
+                },
+                {
+                  "className": "",
+                  "showLabel": true,
+                  "label": "Ricerca e sviluppo",
+                  "labelClassName": "",
+                  "href": "#"
+                }]
+              }
+            ]
+          }
+    },
+    {
+      "level": "2",
+      "id": "11",
+      "breadcrumbTitle": "Corporate",
+      "nav": {
+        "items": [
+          {
+            "className": "",
+            "showLabel": true,
+            "label": "Termini e condizioni",
+            "labelClassName": "",
+            "href": "#"
+          },
+          {
+            "className": "",
+            "showLabel": true,
+            "label": "Codice etico",
+            "labelClassName": "",
+            "href": ""
+          },
+          {
+            "className": "",
+            "showLabel": true,
+            "label": "Informazioni Legali",
+            "labelClassName": "",
+            "href": "#"
+          }
+        ]
+      }
+}
+    ]
+  },
+  "social" : [
+    { "title" : "Facebook", "url" : "#fb", "icon" : "facebook" },
+    { "title" : "Linkedin", "url" : "#li", "icon" : "linkedin" },
+    { "title" : "Instagram", "url" : "#in", "icon" : "instagram" }
+  ],
+  "menuItems":[
+    { "title" : "Società", "index": 1, "url" : "#url1", "childs": "yes", "link": [
+
+      {
+        "title": "Storia", "url" : "#url1"
+      },
+      {
+        "title": "Vantiamocene", "url" : "#url1"
+      },
+      {
+        "title": "Proprietà", "url" : "#url1"
+      },
+      {
+        "title": "Contatti", "url" : "#url1"
+      }
+
+    ] },
+
+    { "title" : "Serie B", "index": 2, "url" : "#url1", "childs": "yes", "link": [
+
+      {
+        "title": "Serie B Maschile", "url" : "#url1"
+      },
+      {
+        "title": "Serie B femminile", "url" : "#url1"
+      }
+
+    ] },
+
+    { "title" : "Settore Giovanile", "index": 3, "url" : "#url1", "childs": "yes", "link": [
+
+      {
+        "title": "Under 19", "url" : "#url1"
+      },
+      {
+        "title": "Under 18", "url" : "#url1"
+      },
+      {
+        "title": "Under 17", "url" : "#url1"
+      },
+      {
+        "title": "Under 16", "url" : "#url1"
+      },
+      {
+        "title": "Under 15", "url" : "#url1"
+      },
+      {
+        "title": "Under 14", "url" : "#url1"
+      },
+      {
+        "title": "Under 13", "url" : "#url1"
+      },
+      {
+        "title": "Scoiattoli", "url" : "#url1"
+      },
+      {
+        "title": "Pulcini", "url" : "#url1"
+      },
+      {
+        "title": "Esordienti", "url" : "#url1"
+      }
+
+    ] },
+
+    { "title" : "Business", "index": 4, "url" : "#url1", "childs": "yes", "link": [
+
+      {
+        "title": "Sponsor e partner", "url" : "#url1"
+      },
+      {
+        "title": "Diventa Sponsor", "url" : "#url1"
+      },
+      {
+        "title": "Accrediti", "url" : "#url1"
+      }
+
+    ] },
+    { "title" : "Campi e Tornei", "index": 5, "url" : "#url1", "childs": "yes", "link": [
+
+      {
+        "title": "Memorial Damiani", "url" : "#url1"
+      },
+      {
+        "title": "Memorial Giauro", "url" : "#url1"
+      }
+
+    ] },
+    { "title" : "News", "index": 6, "url" : "#url1", "childs": "no", "link": "" },
+    { "title" : "Multimedia", "index": 7, "url" : "#url1", "childs": "no", "link": "" },
+    { "title" : "Per il sociale", "index": 8, "url" : "#url1", "childs": "no", "link": "" }
+  ]
+}

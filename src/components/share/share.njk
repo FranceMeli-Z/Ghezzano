@@ -1,0 +1,84 @@
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% macro content(obj, contentHtml) %}
+
+  {% set componentClassName = 'c-share' %}
+
+  {% set configDefault = {
+    "shareTitle": "Example page title",
+    "shareUrl": "#examplePageUrl"
+  }%}
+  {% set obj = configDefault | merge(obj or {}) %}
+
+    <nav class="{{componentClassName}} {{obj.className}}" data-js-component="Share" data-title="{{obj.shareTitle}}" data-url="{{obj.shareUrl}}">
+           <ul class="list-unstyled">
+              <li class="d-inline-block me-4">
+           <a href="#Facebook" class="c-share--fb" target="_blank" rel="me nofollow" title="Facebook">
+               {{
+            Icon.content({
+              "className": ["c-typo-fs-3"],
+              "iconFamily": "icozaux1",
+              "iconName": "facebook"
+            })
+          }}
+              </a>
+              </li>
+              <li class="d-inline-block me-4">
+              <a href="#" class="c-share--tw" target="_blank" rel="me nofollow" title="Twitter">
+                {{
+            Icon.content({
+              "className": ["c-typo-fs-3"],
+              "iconFamily": "icozaux1",
+              "iconName": "twitter"
+            })
+          }}
+              </a>
+              </li>
+             <li class="d-inline-block me-4">
+              <a href="#" class="c-share--ln" target="_blank" rel="me nofollow" title="Linkedin">
+                {{
+            Icon.content({
+              "className": ["c-typo-fs-3"],
+              "iconFamily": "icozaux1",
+              "iconName": "linkedin"
+            })
+          }}
+              </a>
+              </li>
+              <li class="d-inline-block me-4">
+              <a href="#" class="c-share--wa" target="_blank" rel="me nofollow" title="WhatsApp">
+                {{
+            Icon.content({
+              "className": ["c-typo-fs-3"],
+              "iconFamily": "icozaux1",
+              "iconName": "whatsapp"
+            })
+          }}
+              </a>
+            </li>
+            <li class="d-inline-block me-4">
+              <a href="#" class="c-share--tl" target="_blank" rel="me nofollow" title="Telegram">
+                {{
+            Icon.content({
+              "className": ["c-typo-fs-3"],
+              "iconFamily": "icozaux1",
+              "iconName": "telegram"
+            })
+          }}
+              </a>
+            </li>
+            <li class="d-inline-block">
+              <a href="mailto:info@labtil.com" class="c-share--ma" target="_blank" rel="me nofollow" title="Mail">
+                {{
+            Icon.content({
+              "className": ["c-typo-fs-3"],
+              "iconFamily": "icozaux1",
+              "iconName": "mail"
+            })
+          }}
+              </a>
+            </li>
+          </ul>
+</nav>
+
+{% endmacro %}

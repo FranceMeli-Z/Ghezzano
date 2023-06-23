@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+@import "../../assets/scss/components/tokens/hero.style";
+
+$component: componentClass("hero");
+$cmp-tokens: ();
+
+@if ($zaux-hero-style-tokens){
+    $cmp-tokens : $zaux-hero-style-tokens;
+}
+
+.#{$component} {
+  // margin-top: 168px;
+  // @include media-breakpoint-down(md){
+  //   margin-top: 112px;
+  // }
+  &.zaux-hero-scroll {
+    margin-top: 148px; //168px dell'header - (52px header fixed - 32 di padding)
+    @include media-breakpoint-down(md) {
+      margin-top: 90px; //112px dell'header - (52px header fixed - 32 di padding)
+    }
+  }
+  &__inner {
+    height: calc( 100vh - 168px );
+    @include media-breakpoint-down(md) {
+      height: calc( (100vh - 112px) - 32px );
+    }
+  }
+
+  &__content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & h2 {
+      color: transparent !important;
+      -webkit-text-stroke: 1px tokenColor(set1, lightblue);
+    }
+  }
+
+}
+

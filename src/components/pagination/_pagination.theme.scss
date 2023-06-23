@@ -1,0 +1,17 @@
+@import "../../assets/scss/components/base";
+
+$component: componentClass("pagination");
+
+.#{$component} {
+
+  & a,
+  & span.extend {
+    color: tokenColor(set1, darkblue);
+    background-color: tokenColor(set1, white1);
+  }
+  & .current {
+    color: tokenColor(set1, white1);
+    background-color: tokenColor(set1, blue1);
+  }
+
+}

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/tokens/displayblock1.style";
+
+$component: componentClass("displayblock1");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-displayblock1-style-tokens)){
+    $cmp-tokens : $zaux-displayblock1-style-tokens;
+}
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+
+ .#{$component}{
+
+  &--post {
+    position: relative;
+    &::after {
+      content: '';
+      height: 690px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: tokenColor(set1, darkblue);
+    }
+    & .#{$component}__inner {
+      position: relative;
+      &::after {
+        content: '';
+      height: 690px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to bottom, #002D7400, #265AA4);
+      z-index: 1;
+      }
+    }
+  }
+
+  &__tab {
+    &--item {
+      &.active {
+        & span {
+          color: tokenColor(set1, white1 );
+        }
+      }
+      & span {
+        color: #FFFFFF80;
+      }
+    }
+  }
+
+
+}

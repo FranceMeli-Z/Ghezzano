@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("form");
+
+@mixin form-fields-rules1 {
+    &:focus{
+        outline:none;
+    }
+
+    input{
+        &:focus{
+            outline:none;
+        }
+    }
+
+    //Sizes
+
+    //Small is also default
+    &--size-s,
+    &:not([class*=--size]),
+    &:not([type=radio]),
+    &:is(input, select, textarea):not([class*=--size]):not([type=submit]):not([type=radio]) {
+        font-size:getCmpToken($cmp-tokens, 'fs-inputsmall', tokenTypoSizeFs(6), 'layout');
+        // line-height:getCmpToken($cmp-tokens, 'lh-inputsmall', tokenTypoSizeLh(3),'layout');
+        line-height: 52px;
+        & + .#{$component}__field-icon{
+            font-size: tokenIconSize(3);
+        }
+        padding: 0 24px;
+        width: 100%;
+        font-weight: 300;
+        &::placeholder{
+          font-size: 16px;
+          font-weight: 300;
+      }
+    }
+
+    //Medium
+    &--size-m {
+        padding: getCmpToken($cmp-tokens, 'spacer-inputmedium-py', tokenSpacer(3), 'layout') getCmpToken($cmp-tokens, 'spacer-inputmedium-px', tokenSpacer(0), 'layout');
+        font-size:getCmpToken($cmp-tokens, 'fs-inputmedium', tokenTypoSizeFs(6), 'layout');
+        line-height: getCmpToken($cmp-tokens, 'lh-inputmedium', tokenTypoSizeLh(6),'layout');
+        input{
+            padding: getCmpToken($cmp-tokens, 'spacer-inputmedium-py', tokenSpacer(3), 'layout') getCmpToken($cmp-tokens, 'spacer-inputmedium-px', tokenSpacer(0), 'layout');
+        }
+        & + .#{$component}__field-icon{
+            font-size: tokenIconSize(4);
+        }
+        border-radius:tokenRadius("4");
+    }
+
+    //Large
+    &--size-l{
+        padding: getCmpToken($cmp-tokens, 'spacer-inputlarge-py', tokenSpacer(4), 'layout') getCmpToken($cmp-tokens, 'spacer-inputlarge-px', tokenSpacer(0), 'layout');
+        font-size:getCmpToken($cmp-tokens, 'fs-inputlarge', tokenTypoSizeFs(9), 'layout');
+        line-height:getCmpToken($cmp-tokens, 'lh-inputlarge', tokenTypoSizeLh(9),'layout');
+        input{
+            padding: getCmpToken($cmp-tokens, 'spacer-inputlarge-py', tokenSpacer(4), 'layout') getCmpToken($cmp-tokens, 'spacer-inputlarge-px', tokenSpacer(0), 'layout');
+        }
+        & + .#{$component}__field-icon{
+            font-size: tokenIconSize(5);
+        }
+        border-radius:tokenRadius("4");
+    }
+
+    //Radios
+    &:is(input[type=radio]) {
+        position:relative;
+        padding:0;
+        width: 20px;
+        height: 16px;
+        &,&.#{$component}__field--size-s{
+            width:20px;
+            height:20px;
+            border-width: getCmpToken($cmp-tokens, 'css-radioinput-borderwidth', 1px, 'layout') !important;
+        }
+        &:after{
+            content:"";
+            position:absolute;
+            pointer-events:none;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            height:10px;
+            width:10px;
+            opacity:0;
+        }
+        &:checked{
+            &:after{
+                opacity:1;
+            }
+        }
+        &.#{$component}__field--size-m{
+            width:30px;
+            height:30px;
+            padding:0;
+            border-width: getCmpToken($cmp-tokens, 'css-radioinputmedium-borderwidth', 1px, 'layout') !important;
+            &:after{
+                height:15px;
+                width:15px;
+            }
+        }
+        &.#{$component}__field--size-l{
+            width:40px;
+            height:40px;
+            padding:0;
+            border-width: getCmpToken($cmp-tokens, 'css-radioinputlarge-borderwidth', 1px, 'layout') !important;
+            &:after{
+                height:20px;
+                width:20px;
+            }
+        }
+    }
+
+    //Checkboxes
+    &:is(input[type=checkbox]){
+        position:relative;
+        padding:0 !important;
+
+        &, &.#{$component}__field--checkbox-s {
+            width:16px !important;
+            height:16px;
+            padding:0;
+            border-width: getCmpToken($cmp-tokens, 'css-radioinput-borderwidth', 1px, 'layout') !important;
+        }
+        &.#{$component}__field--checkbox-m {
+            width:30px;
+            height:30px;
+            padding:0;
+            border-width: 1px;
+        }
+        &.#{$component}__field--checkbox-l {
+            width:40px;
+            height:40px;
+            padding:0;
+            border-width: getCmpToken($cmp-tokens, 'css-radioinputlarge-borderwidth', 1px, 'layout') !important;
+        }
+    }
+
+    //File
+    &:is([type=file])::file-selector-button {
+        margin-right:tokenSpacer(2);
+        appearance:none;
+        border-style:none;
+        //padding: tokenSpacer(1) tokenSpacer(2);
+    }
+
+    //Variants
+    &--type2, &--type3{
+        border:none;
+        &.#{$component}__field{
+            &--size-s{
+                padding: getCmpToken($cmp-tokens, 'spacer-input2small-py', tokenSpacer(2), 'layout') getCmpToken($cmp-tokens, 'spacer-input2small-px', tokenSpacer(3), 'layout');
+                font-size:getCmpToken($cmp-tokens, 'fs-inputsmall', tokenTypoSizeFs(3)+1, 'layout');
+                input{
+                    padding: getCmpToken($cmp-tokens, 'spacer-input2small-py', tokenSpacer(2), 'layout') getCmpToken($cmp-tokens, 'spacer-input2small-px', tokenSpacer(3), 'layout');
+                }
+            }
+            &--size-m{
+                padding: getCmpToken($cmp-tokens, 'spacer-input2medium-py', tokenSpacer(4), 'layout') getCmpToken($cmp-tokens, 'spacer-input2medium-px', tokenSpacer(5), 'layout');
+                font-size:getCmpToken($cmp-tokens, 'fs-inputmedium', tokenTypoSizeFs(6), 'layout');
+                input{
+                    padding: getCmpToken($cmp-tokens, 'spacer-input2medium-py', tokenSpacer(4), 'layout') getCmpToken($cmp-tokens, 'spacer-input2medium-px', tokenSpacer(5), 'layout');
+                }
+            }
+            &--size-l{
+                padding: getCmpToken($cmp-tokens, 'spacer-input2large-py', tokenSpacer(4), 'layout') getCmpToken($cmp-tokens, 'spacer-input2large-px', tokenSpacer(5), 'layout');
+                font-size:getCmpToken($cmp-tokens, 'fs-inputlarge', tokenTypoSizeFs(9), 'layout');
+                input{
+                    padding: getCmpToken($cmp-tokens, 'spacer-input2medium-py', tokenSpacer(2), 'layout') getCmpToken($cmp-tokens, 'spacer-input2medium-px', tokenSpacer(5), 'layout');
+                }
+            }
+        }
+    }
+
+    &:is(div){
+        padding:0 !important;
+    }
+}
+
+
+.#{$component} {
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 24px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+    &__field {
+      @include media-breakpoint-down(md) {
+        margin-bottom: 24px;
+      }
+      & input, select, textarea {
+        @include form-fields-rules1;
+      }
+      & textarea {
+          line-height: 24px !important;
+          min-height: 140px;
+          padding: 24px !important;
+      }
+    & label {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+  }
+  &__checkbox {
+    & label {
+      font-weight: 300;
+      font-size: 16px;
+      padding-left: 24px;
+      margin-top: -18px;
+      float: left;
+      & a {
+        font-weight: 600;
+      }
+    }
+  }
+  &__submit {
+    & input[type=submit]{
+      cursor: pointer;
+      @extend .c-btn1;
+      width: auto;
+      &:hover{
+        background-size: 100% 100%;
+        transition: all .3s ease;
+      }
+      background: linear-gradient(to top, tokenColor(set1,yellow1) 7%, transparent 7%) bottom;
+      transition: all .3s ease;
+      background-size: 100% 0;
+      background-repeat: no-repeat;
+  }
+  }
+  }
+
+// Contact form
+.c-form {
+  .wpcf7-list-item {
+    margin: 0;
+  }
+}

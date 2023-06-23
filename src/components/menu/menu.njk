@@ -1,0 +1,108 @@
+{# Imports components #}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-menu' %}
+
+  {% set mainPanel = component_menu
+    .props
+    .panels[0] %}
+
+  <nav class="{{componentClassName}} {{componentClassName}}--var1 h-100 zaux-theme--dark1" data-current-level="1" data-js-component="Menu">
+    <div class="{{componentClassName}}__inner container-l">
+      <div class="{{componentClassName}}__content d-flex flex-column justify-content-between h-100">
+        <div class="{{componentClassName}}__row">
+        <div class="d-flex border-bottom-yellow justify-content-between mb-8">
+            <a href="#ChiudiMenu" aria-label="Apri/chiudi menu" class="c-menu__btn--close c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m">
+                  {{
+                    Icon.content({
+                      "className": ["c-icon--size-2  c-icon--middle me-1"],
+                      "iconFamily": "icozaux1",
+                      "iconName": "close"
+                    })
+                  }}
+                  <span class="">Chiudi</span>
+            </a>
+            <a href="#defaultLink" class="c-btn c-btn--secondary-dark c-btn1 c-btn1--has-icon c-btn1--size-m">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": [""],
+                    "iconFamily": "icozaux1",
+                    "iconName": "download"
+                  })
+                }}
+                <span class="c-btn__label ps-2">brochure</span>
+              </span>
+                <!-- .c-btn__inner -->
+          </a>
+        </div>
+
+        <div class="{{componentClassName}}__nav">
+
+          <ul class="{{componentClassName}}__nav--list">
+            <li class="{{componentClassName}}__nav--item ">
+              <a href="#Info" class="{{componentClassName}}__nav--item--label" data-menu-value="Info">
+                {{
+                    Icon.content({
+                      "className": ["c-icon--size-2 c-icon--middle me-1"],
+                      "iconFamily": "icozaux1",
+                      "iconName": "arrow-right"
+                    })
+                  }}
+                  <span>Info</span>
+              </a>
+            </li>
+            <li class="{{componentClassName}}__nav--item ">
+              <a href="#Tipologie" class="{{componentClassName}}__nav--item--label" data-menu-value="Tipologie">
+                {{
+                    Icon.content({
+                      "className": ["c-icon--size-2 c-icon--middle me-1"],
+                      "iconFamily": "icozaux1",
+                      "iconName": "arrow-right"
+                    })
+                  }}
+                  <span>Tipologie</span>
+              </a>
+            </li>
+            <li class="{{componentClassName}}__nav--item">
+              <a href="#Appuntamento" class="{{componentClassName}}__nav--item--label" data-menu-value="Appuntamento">
+                {{
+                    Icon.content({
+                      "className": ["c-icon--size-2 c-icon--middle me-1"],
+                      "iconFamily": "icozaux1",
+                      "iconName": "arrow-right"
+                    })
+                  }}
+                  <span>Richiedi appuntamento</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="{{componentClassName}}__infobtn border-bottom-yellow mb-6">
+          <a href="#defaultLink" class="c-btn c-btn--secondary-dark c-btn1 c-btn1--has-icon c-btn1--size-m">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-md"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "phone2"
+                  })
+                }}
+                <span class="c-btn__label ps-2">(+39) 050 985232</span>
+              </span>
+                <!-- .c-btn__inner -->
+          </a>
+      </div>
+    </div>
+
+    </div>
+  </nav>
+  <!-- .{{componentClassName}} -->
+
+{% endmacro %}
+

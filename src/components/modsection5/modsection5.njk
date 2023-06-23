@@ -1,0 +1,60 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/share/share.njk' as Share %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-modsection5' %}
+
+  {% set configDefault = {
+    "className": [""],
+    "titleTag" : "h6"
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  {# HTML HERE #}
+
+  <div class="{{_className | join(" ") | trim}} c-modsection" data-value="Sezione_Capitolato">
+    <div class="{{componentClassName}}__inner">
+        <div class="{{componentClassName}}__img mb-6">
+          {{
+                  Img.content({
+                    "mainSrc" : '../../media/Capitolato.png',
+                  "sourceList" : '../../media/Capitolato.png',
+                            "lazyload": true,
+                            "imgWidth": 350,
+                            "imgHeight": 350,
+                            "className": ["h-100","text-center"],
+                            "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50"],
+                            "title": "title",
+                            "imgAlt": "alt"
+                          })
+                }}
+        </div>
+
+        <div class="{{componentClassName}}__download text-center">
+          <a href="#defaultLink" class="{{componentClassName}}__infobtn--brochure c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m">
+            <span class="c-btn__inner d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": ["c-icon-size-sm"],
+                  "iconFamily": "icozaux1",
+                  "iconName": "download"
+                })
+              }}
+              <span class="c-btn__label ps-2">Scarica</span>
+              </span>
+                  <!-- .c-btn__inner -->
+          </a>
+        </div>
+
+    </div>
+  </div>
+
+{% endmacro %}

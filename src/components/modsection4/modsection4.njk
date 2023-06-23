@@ -1,0 +1,99 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/share/share.njk' as Share %}
+{% import 'components/slider/slider_card2.njk' as SliderLotti %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-modsection4' %}
+
+  {% set configDefault = {
+    "className": [""],
+    "titleTag" : "h6"
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  {# HTML HERE #}
+
+  <div class="{{_className | join(" ") | trim}} c-modsection" data-value="Sezione_Planimetria">
+    <div class="{{componentClassName}}__inner">
+        <div class="{{componentClassName}}__form text-center mb-6">
+          <form data-planimetria-form class="c-form">
+            <div class="c-form__select-modale">
+              <select name="planimetria" class="">
+                {% set id = 0 %}
+                {% for i in range(0, 4) %}
+                  {% set id = id + 1 %}
+                <option value="Villetta {{id}}a" data-option-id="planimetria-{{id}}">Villetta {{id}}a</option>
+                {% endfor %}
+              </select>
+            </div>
+         </form>
+        </div>
+
+        <div class="{{componentClassName}}__img mb-6">
+           {% set ids = 0 %}
+            {% for i in range(0, 2) %}
+              {% set ids = ids + 1 %}
+              <div class="{{componentClassName}}__img--item {% if( ids == 1) %} active {% endif %}" data-planimetria-id="planimetria-{{ids}}">
+              {{
+                      Img.content({
+                        "mainSrc" : '../../media/ImmgineTest.png',
+                      "sourceList" : '../../media/ImmgineTest.png',
+                                "lazyload": true,
+                                "imgWidth": 500,
+                                "imgHeight": 500,
+                                "className": ["text-center, h-100"],
+                                "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100"],
+                                "title": "title",
+                                "imgAlt": "alt"
+                              })
+                    }}
+              </div>
+            {% endfor %}
+            {% for i in range(0, 2) %}
+              {% set ids = ids + 1 %}
+              <div class="{{componentClassName}}__img--item" data-planimetria-id="planimetria-{{ids}}">
+              {{
+                      Img.content({
+                        "mainSrc" : '../../media/Doctor.png',
+                      "sourceList" : '../../media/Doctor.png',
+                                "lazyload": true,
+                                "imgWidth": 500,
+                                "imgHeight": 500,
+                                "className": ["text-center, h-100"],
+                                "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100"],
+                                "title": "title",
+                                "imgAlt": "alt"
+                              })
+                    }}
+              </div>
+            {% endfor %}
+        </div>
+
+        <div class="{{componentClassName}}__download text-center">
+          <a href="#defaultLink" class="{{componentClassName}}__infobtn--brochure c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m">
+            <span class="c-btn__inner d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": ["c-icon-size-sm"],
+                  "iconFamily": "icozaux1",
+                  "iconName": "download"
+                })
+              }}
+              <span class="c-btn__label ps-2">Scarica</span>
+              </span>
+                  <!-- .c-btn__inner -->
+          </a>
+        </div>
+
+    </div>
+  </div>
+
+{% endmacro %}

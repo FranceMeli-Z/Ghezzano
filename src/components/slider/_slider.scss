@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("slider");
+
+// /swiper/modules/pagination/pagination.scss
+
+:root {
+  --swiper-theme-color: #{tokenColor("set1", "yellow1")};
+  --swiper-pagination-bullet-inactive-color: #{tokenColor("set1", "gray1")};
+  --swiper-pagination-bullet-horizontal-gap: #{tokenSpacer(2)};
+  --swiper-pagination-bullet-vertical-gap: 0;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-opacity: 1;
+}
+
+.#{$component} {
+
+  &__wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+  .swiper-pagination {
+    display: none;
+    @include media-breakpoint-down(md) {
+      display:block;
+      text-align: left;
+      margin-left: 16px;
+      & .swiper-pagination-bullet {
+        background: white;
+      }
+      & .swiper-pagination-bullet-active {
+        background: tokenColor(set1, yellow1);
+      }
+
+    }
+  }
+  .c-slider__navigation {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+    & .swiper-button-prev, & .swiper-button-next {
+      top: 50%;
+    }
+    & .swiper-button-next {
+
+      border-radius: 100%;
+      color: #C8B17D;
+      height: 32px;
+      width: 32px;
+      opacity: 1;
+      right: -56px;
+      @include media-breakpoint-down(xl){
+        right: -32px;
+      }
+      &::after {
+        content: '';
+      }
+      & i {
+        font-size: 32px;
+      }
+
+    }
+
+    & .swiper-button-prev {
+      color: #C8B17D;
+      height: 32px;
+      width: 32px;
+      opacity: 1;
+      left: -56px;
+      @include media-breakpoint-down(xl){
+        left: -32px;
+      }
+      &::after {
+        content: '';
+      }
+      & i {
+        font-size: 32px;
+        transform: rotate(180deg);
+      }
+    }
+
+    & .swiper-button-disabled {
+      & i {
+        opacity: 0.35;
+      }
+    }
+
+  }
+
+  .swiper-slide {
+    height:auto;
+    > *{
+      height:100%;
+    }
+  }
+  .swiper-button-lock {
+    display: none !important;
+  }
+  //Variazione1
+  &--var1 {
+    @include media-breakpoint-down(md){
+      & .#{$component}__wrapper {
+        margin: 0 -16px;
+      }
+      & .#{$component}__instance {
+        padding-right: 64px;
+        padding-left: 16px;
+      }
+    }
+  }
+
+  //Variazione 2
+  &--var2 {
+    width: 100%;
+    height: 200px;
+    overflow: visible;
+    @include media-breakpoint-up(md){
+      & .#{$component}__wrapper {
+        margin: 0 -128px;
+      }
+      & .#{$component}__instance {
+        padding: 0 128px;
+      }
+    }
+    @include media-breakpoint-down(md){
+      & .#{$component}__wrapper {
+        margin: 0 -16px;
+      }
+    }
+  .swiper-wrapper {
+    max-height: 596px;
+  }
+  .swiper-slide {
+
+    &.swiper-slide-active {
+      z-index: 2
+    }
+    &.swiper-slide-prev,   &.swiper-slide-next {
+      opacity: 0.25;
+    }
+  }
+  .c-slider__navigation {
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+    & .modimg-swiper-button-prev, & .modimg-swiper-button-next {
+      top: calc( 50% - 66px );
+      position: absolute;
+      cursor: pointer;
+      z-index: 1;
+    }
+    & .modimg-swiper-button-next {
+      color: white;
+      height: 32px;
+      width: 32px;
+      opacity: 1;
+      right: -56px;
+      @include media-breakpoint-down(xl){
+        right: -32px;
+      }
+      @include media-breakpoint-down(md){
+        top: auto;
+        bottom: 0;
+        right: 0;
+      }
+      &::after {
+        content: '';
+      }
+      & i {
+        font-size: 32px;
+        @include media-breakpoint-down(md){
+          font-size: 16px;
+        }
+      }
+    }
+
+    & .modimg-swiper-button-prev {
+      color: white;
+      height: 32px;
+      width: 32px;
+      opacity: 1;
+      left: -56px;
+      @include media-breakpoint-down(xl){
+        left: -32px;
+      }
+      @include media-breakpoint-down(md){
+        top: auto;
+        bottom: 0;
+        left: 0;
+      }
+      &::after {
+        content: '';
+      }
+      & i {
+        font-size: 32px;
+        transform: rotate(180deg);
+        @include media-breakpoint-down(md){
+          font-size: 16px;
+        }
+      }
+    }
+    & .modimg-swiper-button-disabled {
+      & i {
+        opacity: 0.35;
+      }
+    }
+  }
+}
+
+}
+
+

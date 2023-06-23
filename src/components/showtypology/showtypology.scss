@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+$component: componentClass("showtypology");
+
+.#{$component} {
+
+  &__item {
+    @include media-breakpoint-down(md){
+      padding-bottom: 16px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+}

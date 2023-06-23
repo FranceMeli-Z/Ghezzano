@@ -1,0 +1,34 @@
+{% import 'components/textlogoblock/textlogoblock.njk' as TextLogo %}
+{% import 'components/showtypology/showtypology.njk' as ShowTypology %}
+
+
+<div class="c-displayblock1 zaux-theme--light1">
+    <div class="c-displayblock1__inner container-l py-8 pt-md-12 pb-md-14">
+      <div class="c-displayblock1__row c-wrapper--w1 mb-7 mb-md-14">
+        {{ TextLogo.content({
+          "title": "Sistema costruttivo certificato",
+          "content": "BioPLUS® è un sistema costruttivo brevettato e certificato, composto da una famiglia di blocchi cassero realizzati in calcestruzzo alleggerito Leca e
+          con l’integrazione di uno strato di isolante Neopor. Il sistema permette di ottenere i vantaggi statici di una struttura scatolare a resistenza diffusa e quelli di
+          un involucro ad alta efficienza energetica per un elevato benessere abitativo grazie al suo ottimo isolamento termico ed alla sua massa e inerzia termica.
+          Un edificio BioPLUS® soddisfa i requisiti della sostenibilità ambientale.",
+          "img" : {
+                        "mainSrc" : '../assets/img/PaverLife.png',
+                        "sourceList" : '../assets/img/PaverLife.png',
+                                "lazyload": true,
+                                "imgWidth": 160,
+                                "imgHeight": 48,
+                                "className": [""],
+                                "imgClassName": ["img-fluid"],
+                                "title": "title",
+                                "imgAlt": "alt"
+                      }
+        })}}
+      </div>
+      <div class="c-displayblock1__row c-wrapper--w1">
+        {{ ShowTypology.content({
+          "title": "Scopri le tipologie",
+          "subtitle": "Clicca sulle tipologie di residenze del complesso per saperne di più sulle loro caratteristiche e sfogliare le immagini."
+        }) }}
+      </div>
+    </div>
+  </div>

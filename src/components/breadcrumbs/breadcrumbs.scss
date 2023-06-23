@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+// @import "../../assets/scss/components/tokens/showcase1.style";
+
+$component: componentClass("breadcrumbs");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-breadcrumbs-style-tokens)){
+    $cmp-tokens : $zaux-breadcrumbs-style-tokens;
+}
+
+.#{$component} {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.008em;
+  & a {
+    font-weight: 300;
+  }
+  & .breadcrumb_last {
+    font-weight: 700;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

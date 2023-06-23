@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+$component: componentClass("textlogoblock");
+
+.#{$component} {
+
+  &__img {
+    display: flex;
+    align-items: center;
+    padding-right: 56px;
+    @include media-breakpoint-down(md){
+      justify-content: center;
+      padding-right: 0;
+      margin-bottom: 32px;
+      & img {
+       max-width: 160px;
+       max-height: 100px;
+       width: auto;
+      }
+    }
+
+  }
+  &__content {
+    @include media-breakpoint-up(md) {
+      padding-left: 56px;
+      border-left: 1px solid tokenColor(set1,yellow1);
+    }
+    &--txt {
+      max-width: 812px;
+    }
+  }
+}

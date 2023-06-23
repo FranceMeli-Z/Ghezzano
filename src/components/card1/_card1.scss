@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("card1");
+
+.#{$component} {
+
+&__content--info {
+  line-height: 52px;
+  display: block;
+}
+
+&__inner {
+  position: relative;
+  &::after {
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    background-color: transparent;
+    transition: all .3s ease-out;
+  }
+  &:hover {
+    &::after {
+      background-color: tokenColor(set1,yellow1);
+      transition: all .3s ease-out;
+    }
+  }
+}
+
+
+}

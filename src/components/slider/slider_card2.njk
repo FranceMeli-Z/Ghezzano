@@ -1,0 +1,33 @@
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/card2/card2.njk' as Card2 %}
+
+{% macro content(obj) %}
+
+<div class="c-slider h-100 c-slider--var1"  data-config='{{component_slider.sliderLotti.config | dump | safe}}' data-js-component="Slider">
+  <div class="c-slider__wrapper h-100">
+    <div class="c-slider__instance swiper swiper-container h-100">
+
+      <div class="swiper-wrapper">
+          {% set ids = 0 %}
+
+        {% for i in range(0,4) %}
+          {% set ids = ids + 1 %}
+          <div class="swiper-slide">
+
+              {{Card2.content({
+                "ids": ids
+              })}}
+
+          </div>
+                  <!-- .col-* -->
+          {% endfor %}
+      </div>
+    </div>
+    <!-- .c-slider__instance -->
+  </div>
+  <!-- .c-slider__wrapper -->
+</div>
+
+{% endmacro %}
+

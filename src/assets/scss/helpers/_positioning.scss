@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+@import "../abstracts/variables";
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$zaux-helper-name: "pos";
+
+
+// .zaux-#{$zaux-helper-name}-header-nav {
+//   @include media-breakpoint-up(lg) {
+//     top: 52px !important;
+//   }
+// }
+
+
+// .zaux-menu-active {
+//   & .c-menu--var1.open {
+//     .zaux-#{$zaux-helper-name}-menu-custom1 {
+//       @include media-breakpoint-down(lg) {
+//         height: calc( 100vh - 182px);
+//         margin-top: 182px;
+//       }
+//       @include media-breakpoint-down(md) {
+//         height: calc( 100vh - 168px);
+//         margin-top: 168px;
+//       }
+//     }
+
+//     .zaux-#{$zaux-helper-name}-menu-custom2 {
+//       @include media-breakpoint-down(lg) {
+//         height: calc( 100vh - 72px);
+//         margin-top: 72px;
+//       }
+//     }
+//   }
+// }

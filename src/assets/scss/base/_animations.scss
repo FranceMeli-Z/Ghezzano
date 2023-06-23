@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+// Add here CSS animations rules
+@keyframes move {
+    49.99% {
+      transform: translateY(-50%);
+    }
+    50% {
+      opacity:0;
+    }
+    50.001% {
+      transform: translateY(50%);
+    }
+    50.002% {
+        opacity: 1;
+      }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
+  }

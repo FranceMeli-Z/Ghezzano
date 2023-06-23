@@ -1,0 +1,32 @@
+$zaux-header-style-tokens:(
+  layout: (
+    spacer-inner: 0px,
+    spacer-menu-items: tokenSpacer(7),
+    spacer-rows-py: tokenSpacer(5),
+    fs-menu-item: tokenTypoSizeFs(9),
+    fs-badge: tokenTypoSizeFs(3)+1,
+    fs-badge-icon: tokenIconSize(2),
+    spacer-badge-ml: tokenSpacer(1),
+    spacer-badge-pt: tokenSpacer(1),
+    spacer-quick-links-item-mr: tokenSpacer(4),
+    fs-quick-links-item: rem(tokenTypoSizeFs(3)+1)
+  ),
+  layout-res1-lg: (
+    spacer-inner: 0px,
+    spacer-inner-py: tokenSpacer(6),
+    spacer-inner-px: tokenSpacer(2)
+  ),
+  layout-res1-sm: (
+    spacer-inner: tokenSpacer(6)
+  ),
+  layout-res1-high-xs: (
+    spacer-inner-px: tokenSpacer(2),
+    css-logo-width: 200px
+  ),
+  theme-light1: (
+    color-border-row-1: tokenColor('set1','color1'),
+    color-menu-items: tokenColor('set1', 'color4'),
+    dropshadow-header: tokenShadow('sm') rgba(tokenColor('set1', 'white1'), 0.4),
+    color-badge-bg: tokenColor('set1','color2')
+  )
+);

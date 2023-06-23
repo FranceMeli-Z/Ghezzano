@@ -1,0 +1,67 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+
+{% macro content(obj) %}
+
+    {% set componentClassName = 'c-card2' %}
+
+    {% set configDefault = {
+    "className": [""],
+    "isHome": false
+    }%}
+
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+    {# Creates new arrays for manipulation) #}
+    {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+    <article class="{{componentClassName}} h-100">
+        <div class="{{componentClassName}}__inner p-4 pb-0">
+          <div class="{{componentClassName}}__head py-4 align-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon--size-4 mb-1"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "metro-tags"
+                  })
+                }}
+                <span class="c-typo-fs-9 fw-semi">Villetta {{ obj.ids }}a</span>
+          </div>
+
+          <div class="{{componentClassName}}__listing mb-4">
+            {% for i in range(0, 6) %}
+                <div class="{{componentClassName}}__listing--item border-top-yellow d-flex flex-row align-items-center">
+                    {{
+                          Icon.content({
+                            "className": ["c-icon--size-3"],
+                            "iconFamily": "icozaux1",
+                            "iconName": "phone"
+                          })
+                        }}
+                    <span class="c-typo-fs-6 ps-4 fw-light">Terrazzi, loggiati e balconi: <strong>34,86 mq</strong></span>
+                </div>
+           {% endfor %}
+          </div>
+
+          <div class="{{componentClassName}}__footer text-center">
+             <a href="#Planimetria-{{obj.ids}}" class="{{componentClassName}}__infobtn--tel c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m" data-lotto-id="planimetria-{{ obj.ids }}">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-md"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "metro-map"
+                  })
+                }}
+                <span class="c-btn__label ps-2">Planimetria</span>
+              </span>
+                <!-- .c-btn__inner -->
+          </a>
+          </div>
+
+        </div>
+    </article>
+
+{% endmacro %}

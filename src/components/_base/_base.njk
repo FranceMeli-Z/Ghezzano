@@ -1,0 +1,22 @@
+{# Imports components #}
+{# import 'components/img/img.njk' as Img #}
+{% import 'components/base/partials/base-search.njk' as searchForm %}
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-base' %}
+
+  {% set configDefault = {
+    "className": ["zaux-bg-set1-white1"],
+    "isHome": false
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  {# HTML HERE #}
+
+{% endmacro %}

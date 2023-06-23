@@ -1,0 +1,48 @@
+[class^="icozaux1-"], [class*=" icozaux1-"] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icozaux1-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.icozaux1-chair {
+  width: 0.875em;
+}
+
+.icozaux1-document {
+  width: 0.76953125em;
+}
+
+.icozaux1-lightbulb {
+  width: 0.6875em;
+}
+
+.icozaux1-fire {
+  width: 0.75em;
+}
+
+.icozaux1-shield-alt {
+  width: 0.9375em;
+}
+
+.icozaux1-build {
+  width: 1.005859375em;
+}
+
+.icozaux1-tree {
+  width: 0.75em;
+}
+
+.icozaux1-download {
+  width: 0.8232421875em;
+}

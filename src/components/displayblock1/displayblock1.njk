@@ -1,0 +1,30 @@
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/breadcrumbs/breadcrumbs.njk' as Breadcrumbs %}
+
+{% macro content(obj) %}
+
+    {% set componentClassName = 'c-displayblock1' %}
+
+    {% set configDefault = {
+        "className": ["res--1"]
+    }%}
+
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+    {% set displayTitle = obj.title or component_displayblock1.title or '' %}
+    {% set displaySubtitle = obj.subtitle or component_displayblock1.subtitle or '' %}
+    {% set displayAbstract = obj.abstract or component_displayblock1.abstract or '' %}
+    {% set displayBg = obj.bg or component_displayblock1.bg or '' %}
+
+    {# Creates new arrays for manipulation) #}
+    {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  <div class="{{_className | join(" ") | trim }} ">
+    <div class="{{componentClassName}}__inner container-l">
+      <div class="{{componentClassName}}__content c-wrapper--w1">
+        {}
+      </div>
+    </div>
+  </div>
+{% endmacro %}

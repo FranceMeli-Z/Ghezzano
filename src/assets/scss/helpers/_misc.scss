@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+//////////////////////////////////////////////////
+// MISC - WIDTHS
+//////////////////////////////////////////////////
+
+.w-80{
+    width:80%;
+}
+.w-75{
+    width:75%;
+}
+
+.w-60{
+    width:60%;
+}
+
+.w-50{
+    width:50%;
+}
+.w-75{
+    width:75%;
+}
+.w-60{
+    width:60%;
+}
+.w-40{
+    width:40%;
+}
+.w-30{
+    width:30%;
+}
+.w-25{
+    width:25%;
+}
+
+@each $k in tokenTypoBreakpoints() {
+    @include media-breakpoint-up(#{$k}) {
+        .w-#{$k}-80{
+            width:80%;
+        }
+        .w-#{$k}-75{
+            width:75%;
+        }
+        .w-#{$k}-60{
+            width:60%;
+        }
+        .w-#{$k}-50{
+            width:50%;
+        }
+        .w-#{$k}-40{
+            width:40%;
+        }
+        .w-#{$k}-30{
+            width:30%;
+        }
+        .w-#{$k}-25{
+            width:25%;
+        }
+    }
+}
+
+.text-left{
+    text-align:left;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.text-right{
+    text-align:right;
+}
+
+@each $k in tokenTypoBreakpoints() {
+    @include media-breakpoint-up(#{$k}) {
+        .text-#{$k}-left{
+            text-align:left;
+        }
+        .text-#{$k}-center{
+            text-align:center;
+        }
+        .text-#{$k}-right{
+            text-align:right;
+        }
+    }
+}
+.zaux-zi-1 {
+  z-index: 1;
+}
+.zaux-zi-2 {
+  z-index: 2;
+}
+
+.c-displayblock2 {
+  @include media-breakpoint-up(md) {
+    position:relative;
+    &::before {
+      height: 128px;
+      content: '';
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      background-color: tokenColor(set1,lightblue);
+    }
+  }
+}
+
+
+.c-modsection{
+  display: none;
+  &.open {
+    display: block;
+  }
+}
+
+// .c-deco--hover {
+//   position: relative;
+//   &::after {
+//     height: 4px;
+//     width: 100%;
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     content: '';
+//   }
+
+// }
+

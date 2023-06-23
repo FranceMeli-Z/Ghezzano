@@ -1,0 +1,53 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/share/share.njk' as Share %}
+{% import 'components/card1/card1.njk' as Card1 %}
+{% import 'components/modale/modale.njk' as ModaleAppartamenti %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-showtypology' %}
+
+  {% set configDefault = {
+    "className": [""],
+    "titleTag" : "h6"
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+  {% set sliderId = "sliderID" + range(1,1000) | random  %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  {# HTML HERE #}
+
+  <div class="{{_className | join(" ") | trim}}" id="Tipologie">
+    <div class="{{componentClassName}}__inner">
+      <h3 class="{{componentClassName}}__title text-center font-zaux2 fw-semi c-typo-fs-12 c-typo-fs-md-15 mb-5">
+          {{ obj.title }}
+      </h3>
+      <div class="{{componentClassName}}__subtitle c-typo-style1-6 text-center fw-light maw-f526 m-auto mb-6 mb-md-8">
+         <p> {{ obj.subtitle }} </p>
+      </div>
+      <div class="{{componentClassName}}__row row gx-2">
+        {% set ids = 0 %}
+         {% for i in range(0, 4) %}
+          {% set ids = ids + 1 %}
+          <div class="{{componentClassName}}__item col-12 col-sm-6 col-md-3">
+            {{ Card1.content({
+              "id": ids,
+              "title":"Bifamiliare grande"
+            }) }}
+          </div>
+          {{ ModaleAppartamenti.content({
+            "ids": ids,
+            "title":"Bifamiliare grande"
+          }) }}
+         {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endmacro %}

@@ -1,0 +1,29 @@
+{
+  "img" : {
+    "mainUrl" : "assets/img/PielleTeam.png",
+    "sourceList" : [
+        {
+          "url" : "../assets/img/PielleTeam.png",
+          "url2x" : "../assets/img/PielleTeam.png"
+        }
+    ]
+  },
+  "logo1" : {
+    "mainUrl" : "assets/img/LNP1.png",
+    "sourceList" : [
+        {
+          "url" : "../assets/img/LNP1.png",
+          "url2x" : "../assets/img/LNP1.png"
+        }
+    ]
+  },
+  "logo2" : {
+    "mainUrl" : "assets/img/LNP-Lega.png",
+    "sourceList" : [
+        {
+          "url" : "../assets/img/LNP-Lega.png",
+          "url2x" : "../assets/img/LNP-Lega.png"
+        }
+    ]
+  }
+}

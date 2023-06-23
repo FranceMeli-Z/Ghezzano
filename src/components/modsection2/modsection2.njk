@@ -1,0 +1,30 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/share/share.njk' as Share %}
+{% import 'components/slider/slider_img.njk' as SliderFoto %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-modsection2' %}
+
+  {% set configDefault = {
+    "className": [""],
+    "titleTag" : "h6"
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  {# HTML HERE #}
+
+  <div class="{{_className | join(" ") | trim}} c-modsection" data-value="Sezione_Foto">
+    <div class="{{componentClassName}}__inner">
+        {{ SliderFoto.content() }}
+    </div>
+  </div>
+
+{% endmacro %}

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("icon");
+
+////////////////////////////////////////////////////
+// Generic icon sizes
+////////////////////////////////////////////////////
+
+@include c-generate-icon-sizes;
+
+.#{$component} {
+  display: inline-block;
+  line-height: 0;
+
+  &,
+  &[class*="-fs"] {
+    line-height: 0 !important;
+  }
+
+  svg{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+  &--middle {
+    vertical-align: middle;
+  }
+
+  //////////////////////////////////////////////////
+  // DEBUG
+  //////////////////////////////////////////////////
+
+  // background-color: rgba(255, 0, 0, 0.2);
+}

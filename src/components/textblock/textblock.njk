@@ -1,0 +1,121 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/share/share.njk' as Share %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-textblock' %}
+
+  {% set configDefault = {
+    "className": [""],
+    "titleTag" : "h6"
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+  {% set sliderId = "sliderID" + range(1,1000) | random  %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  {# HTML HERE #}
+
+  <div class="{{_className | join(" ") | trim}}">
+    <div class="{{componentClassName}}__inner c-wrapper--w2">
+      <h3 class="{{componentClassName}}__title text-center font-zaux2 fw-semi c-typo-fs-12 c-typo-fs-md-15 mb-6">
+          {{ obj.title }}
+      </h3>
+      {% if (obj.content) %}
+        <div class="c-typo-style1-6 fw-light mb-6">
+          <p>{{ obj.content }}</p>
+        </div>
+      {% endif %}
+
+      {% if (obj.listing) %}
+      <div class="{{componentClassName}}__listing row gx-2 zaux-theme--light1">
+           {% for i in range(0, 10) %}
+              <div class="col-12 col-md-6">
+                {# <div class="{{componentClassName}}__listing--item border-top-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between"> #}
+                <div class="{{componentClassName}}__listing--item border-top-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between h-100">
+                  <div class="d-flex align-items-center h-100">
+                    {{
+                          Icon.content({
+                            "className": ["c-icon-size-md zaux-color-set1-yellow1"],
+                            "iconFamily": "icozaux1",
+                            "iconName": "phone"
+                          })
+                        }}
+                    <span class="c-typo-fs-8 fw-demi ps-4 pe-6 d-block">Sistema costruttivo certificato BioPLUS® Paver</span>
+                  </div>
+                      {% if (i==8) %}
+                        <div class="{{componentClassName}}__listing--item--download">
+                          <a href="">
+                            {{
+                              Icon.content({
+                                "className": ["c-icon-size-md zaux-color-set1-darkbrown"],
+                                "iconFamily": "icozaux1",
+                                "iconName": "download"
+                              })
+                            }}
+                          <span>Brochure</span>
+                          </a>
+                        </div>
+                      {% endif %}
+                </div>
+              </div>
+           {% endfor %}
+              <div class="col-12 col-md-6">
+                <div class="{{componentClassName}}__listing--item border-top-yellow border-bottom-md-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+                <div class="d-flex">
+                    {{
+                          Icon.content({
+                            "className": ["c-icon-size-md zaux-color-set1-yellow1"],
+                            "iconFamily": "icozaux1",
+                            "iconName": "phone"
+                          })
+                        }}
+                    <span class="c-typo-fs-8 fw-demi ps-4 pe-6 d-block">Sistema costruttivo certificato BioPLUS® Paver</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="{{componentClassName}}__listing--item border-top-yellow border-bottom-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+                  <div class="d-flex">
+                    {{
+                          Icon.content({
+                            "className": ["c-icon-size-md zaux-color-set1-yellow1"],
+                            "iconFamily": "icozaux1",
+                            "iconName": "phone"
+                          })
+                        }}
+                    <span class="c-typo-fs-8 fw-demi ps-4 pe-6 d-block">Sistema costruttivo certificato BioPLUS® Paver</span>
+                  </div>
+                </div>
+              </div>
+
+      </div>
+      {% endif %}
+
+      {% if (obj.img) %}
+        <div class="{{componentClassName}}__img position-relative">
+          {{
+                  Img.content({
+                    "mainSrc" : '../../media/ImmgineTest.png',
+                  "sourceList" : '../../media/ImmgineTest.png',
+                            "lazyload": true,
+                            "imgWidth": 500,
+                            "imgHeight": 500,
+                            "className": ["h-100"],
+                            "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100","mah-f480"],
+                            "title": "title",
+                            "imgAlt": "alt"
+                          })
+                }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endmacro %}

@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/tokens/header.style";
+
+$component: componentClass("header");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-header-style-tokens)){
+    $cmp-tokens : $zaux-header-style-tokens;
+}
+
+.#{$component} {
+
+    &__inner {
+      height: 168px;
+      width: 100%;
+      @include media-breakpoint-down(md) {
+      height: 112px;
+    }
+    &.zaux-header-scroll {
+      height: 52px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      & .#{$component}__logo {
+        bottom: 20px;
+        &--big {
+          display: none !important;
+        }
+        &--little {
+          display: block !important;
+        }
+      }
+      & .#{$component}__hamburger {
+        padding-bottom: 16px;
+      }
+    }
+    }
+
+    &__nav {
+      & nav {
+        @include media-breakpoint-down(md){
+          display: none;
+        }
+          ul {
+          display: flex;
+
+          & li {
+            padding: 0 24px;
+            line-height: 52px;
+            font-weight: 300;
+            position: relative;
+            & a {
+              display: block;
+              height: 100%;
+            }
+            &::after {
+              height: 4px;
+              width: 100%;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              content: '';
+              background-color: transparent;
+              transition: all .3s ease-out;
+            }
+            &:hover {
+              &::after {
+                background-color: tokenColor(set1,yellow1);
+                transition: all .3s ease-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  &__hamburger {
+      display: none;
+      padding-bottom: 18px;
+      padding-left: 16px;
+
+    &--btn {
+      height: 16px;
+      width: 16px;
+    }
+    &--inner {
+      position: relative;
+      display: block;
+      height: 100%;
+    }
+    &--line {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      display: block;
+      background-color: #243B35;
+      &--1 {
+        top: 0;
+      }
+      &--2 {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &--3 {
+        bottom: 0;
+      }
+    }
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 16px;
+    &--little {
+      display: none !important;
+    }
+
+    & img {
+      @include media-breakpoint-down(md){
+        width: 162px;
+        height: auto;
+      }
+    }
+  }
+
+  &__infobtn {
+    display: flex;
+    & > a {
+      display: block;
+    }
+    &--tel {
+      @include media-breakpoint-down(md) {
+        display: none !important;
+      }
+    }
+  }
+
+  &__offmenu {
+    & .c-menu {
+      @include media-breakpoint-up(lg) {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      @include media-breakpoint-up(xl) {
+        width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+  }
+}
+
+.zaux-menu-active .c-header__logo.scroll-down {
+  opacity: 0;
+}
+
+@media screen and (max-width: 492px) {
+  [class*="__insert--logo"] span {
+    display: block;
+  }
+}
+@media screen and (min-width: 1560px) {
+  .c-header__nav {
+    max-width: 992px;
+  }
+}
+

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/tokens/breadcrumbs.style";
+
+$component: componentClass("breadcrumbs");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-breadcrumbs-style-tokens)){
+    $cmp-tokens : $zaux-breadcrumbs-style-tokens;
+}
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+.#{$component} {
+  &--light {
+    & span {
+      color: getCmpToken($cmp-tokens, 'color-cmp', tokenColor('set1',darkblue), 'theme-light1' );
+    }
+    & a {
+        color: getCmpToken($cmp-tokens, 'color-cmp', tokenColor('set1',darkblue), 'theme-light1' );
+        transition: color $zaux-transition-1;
+      &:hover {
+        color: getCmpToken($cmp-tokens, 'color-cmp-h', tokenColor('set1', orange1), 'theme-light1' );
+        transition: color $zaux-transition-1;
+      }
+    }
+  }
+  &--dark {
+    & span {
+      color: getCmpToken($cmp-tokens, 'color-cmp', tokenColor('set1',white1), 'theme-light1' );
+    }
+    & a {
+      color: getCmpToken($cmp-tokens, 'color-cmp', tokenColor('set1',white1), 'theme-light1' );
+      transition: color $zaux-transition-1;
+        &:hover {
+        color: getCmpToken($cmp-tokens, 'color-cmp-h', tokenColor('set1', orange1), 'theme-light1' );
+        transition: color $zaux-transition-1;
+      }
+    }
+  }
+
+}

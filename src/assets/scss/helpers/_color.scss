@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+$zaux-helper-name: "color";
+
+////////////////////////////////////////////////////
+// HELPER MIXINS
+////////////////////////////////////////////////////
+@mixin zaux-helper-color($name, $color) {
+  .zaux-color-#{$name} {
+    color: $color !important;
+  }
+}
+
+@mixin zaux-helper-bgcolor($name, $color) {
+  .zaux-bg-#{$name} {
+    background-color: $color !important;
+  }
+}
+
+@mixin zaux-bg-opacity-color($name, $color, $opacity, $radius : 0, $blend : "normal" ) {
+  .#{$color}-bg-#{$name} {
+    &::after {
+      mix-blend-mode: $blend;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: " ";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-color: rgba(tokenColor('set1', $color ), $opacity );
+      border-radius: $radius;
+    }
+  }
+}
+
+////////////////////////////////////////////////////
+// HELPER CLASSES
+////////////////////////////////////////////////////
+
+@each $setName, $setObj in tokenColors() {
+  @each $colorName, $colorVal in $setObj {
+    @include zaux-helper-color("#{$setName}-#{$colorName}", $colorVal);
+  }
+}
+
+@each $setName, $setObj in tokenColors() {
+  @each $colorName, $colorVal in $setObj {
+    @include zaux-helper-bgcolor("#{$setName}-#{$colorName}", $colorVal);
+  }
+}
+
+////////////////////////////////////////////////////
+// HELPER CSS VARIABLES
+////////////////////////////////////////////////////
+
+// :root {
+//   --#{tokenDef('css-var-prefix')}-test: #f00;
+// }
+
+
+.green-bg-50 {
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #243B3580;
+  }
+}
+
+
+

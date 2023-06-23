@@ -1,0 +1,22 @@
+{% import 'components/imgblock/imgblock.njk' as Imgblock %}
+
+<div class="c-displayblock2 zaux-theme--dark1">
+    <div class="c-displayblock2__inner container-l zaux-bg-set1-darkgreen pt-6 pt-md-8">
+      <div class="c-displayblock2__content c-wrapper--w1">
+        {{ Imgblock.content({
+          "title": "L’area d’intervento",
+          "img" : {
+                        "mainSrc" : '../../media/ImmgineTest.png',
+                        "sourceList" : '../../media/ImmgineTest.png',
+                                "lazyload": true,
+                                "imgWidth": 160,
+                                "imgHeight": 48,
+                                "className": ["h-100"],
+                                "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100","mah-f800"],
+                                "title": "title",
+                                "imgAlt": "alt"
+              }
+        })}}
+      </div>
+    </div>
+  </div>

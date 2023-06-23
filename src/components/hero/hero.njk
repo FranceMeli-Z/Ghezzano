@@ -1,0 +1,73 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/slider/slider_hero.njk' as SliderHero %}
+
+{% macro content(obj) %}
+
+    {% set componentClassName = 'c-hero' %}
+
+    {% set configDefault = {
+    "className": [""],
+    "isHome": false
+    }%}
+
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+    {# Creates new arrays for manipulation) #}
+    {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+    <div class="{{_className | join(" ") | trim }}">
+      <div class="{{componentClassName}}__inner container-hero">
+        <div class="c-wrapper--w1 h-100">
+
+            {% if obj.home %}
+
+              {{SliderHero.content({
+                "title": "Tranquillità senza rinunce",
+                "subtitle": "Ghezzano Village sarà il tuo nuovo stile di vita. Un immobile di pregio, immerso nel verde ma con tutti i comfort a disposizione.
+                            La vicina città di Pisa è infatti raggiungibile in pochi minuti anche attraverso una pista ciclabile."
+              })}}
+
+            {% endif %}
+
+
+          {% if obj.notfound %}
+
+            <div class="{{componentClassName}}__img position-absolute h-100 w-100">
+              {{
+                Img.content({
+                  "mainSrc" : component_hero.img.mainUrl or '',
+                  "sourceList" : component_hero.img.sourceList or '',
+                          "lazyload": true,
+                          "imgWidth": 500,
+                          "imgHeight": 500,
+                          "className": ["gradient-blue2 h-100"],
+                          "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100"],
+                          "title": "title",
+                          "imgAlt": "alt"
+                        })
+              }}
+            </div>
+
+            <div class="{{componentClassName}}__content w-100 zaux-theme--dark1">
+              <div class="text-center">
+                <h2 class="{{componentClassName}}__content--title c-typo-fs-14 c-typo-fs-md-24 fw-medium font-zaux2 text-uppercase mb-5">404</h2>
+                <div class="{{componentClassName}}__content--text c-typo-fs-9 c-typo-fs-sm-12 c-typo-fs-md-14 font-zaux2 text-uppercase mb-4">
+                  <p>Questa pagina non esiste, </br> ma puoi vantarti di tutto il resto</p>
+                </div>
+                <div class="">
+                  <a href="#defaultLink" class="c-btn c-btn1  c-btn--primary-light c-btn1--size-m c-btn1--size-m-res1">
+                    <span class="c-btn__label">Torna alla home</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+{% endmacro %}

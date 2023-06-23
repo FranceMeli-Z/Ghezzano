@@ -1,0 +1,84 @@
+{
+  "sliderHero": {
+    "className": "",
+    "config": {
+      "effect": "creative",
+      "grabCursor": true,
+      "creativeEffect": {
+        "prev": {
+          "shadow": true,
+         "translate": ["-120%", 0, -500]
+        },
+        "next": {
+          "shadow": true,
+          "translate": ["120%", 0, -500]
+        }
+      },
+      "navigation": {
+        "nextEl": ".swiper-button-next",
+        "prevEl": ".swiper-button-prev"
+      },
+      "pagination": {
+        "el": ".swiper-pagination"
+      },
+      "loop": true,
+      "allowTouchMove": true,
+      "autoplay": {
+        "delay": 4000
+      }
+    }
+  },
+  "sliderLotti": {
+    "className": "",
+    "config": {
+      "freeMode": true,
+      "loop": false,
+      "centeredSlides": false,
+      "speed": 600,
+      "spaceBetween": 16,
+      "slidesPerView": 1,
+      "allowTouchMove": true,
+      "breakpoints": {
+        "650": {
+          "slidesPerView": 2,
+          "spaceBetween": 16
+        },
+        "992": {
+          "slidesPerView": 4,
+          "spaceBetween": 16
+        }
+      }
+    }
+  },
+  "sliderFoto": {
+    "className": "",
+    "config": {
+      "speed": 600,
+      "spaceBetween": 16,
+      "slidesPerView": 1,
+      "allowTouchMove": true,
+      "navigation": {
+        "nextEl": ".modimg-swiper-button-next",
+        "prevEl": ".modimg-swiper-button-prev"
+      },
+      "breakpoints": {
+        "992": {
+          "centeredSlides": true,
+          "loop": true,
+          "spaceBetween": 16,
+          "effect": "coverflow",
+          "grabCursor": true,
+          "slidesPerView": "auto",
+          "coverflowEffect": {
+              "rotate": 0,
+              "stretch": 180,
+              "depth": 200,
+              "modifier": 1,
+              "slideShadows": false,
+              "spaceBetween": 0
+          }
+        }
+      }
+    }
+  }
+}

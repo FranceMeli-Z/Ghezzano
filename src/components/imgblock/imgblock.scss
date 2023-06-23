@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+$component: componentClass("imgblock");
+
+.#{$component} {
+
+  &__img {
+    @include media-breakpoint-down(md) {
+      margin: 0 -16px;
+    }
+  }
+
+}

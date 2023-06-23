@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+
+@import "../../assets/scss/components/tokens/btn.style";
+
+$component: componentClass("btn");
+$cmp-tokens: ();
+
+@if ($zaux-btn-style-tokens){
+    $cmp-tokens : $zaux-btn-style-tokens;
+}
+
+@mixin c-btn-size($px) {
+  text-align: center;
+
+  .#{$component} {
+    &__inner {
+      font-size: rem($px);
+      border: 1px solid transparent;
+      height: 1em;
+      border-radius: 0.5em;
+      display: block;
+    }
+  }
+}
+
+[class*="#{$component}--"] {
+  // Commented in favor of Bootstrap's `$line-height-base: 0;` (see src/assets/scss/abstracts/_variables.scss)
+  font-size: 0;
+  line-height: 0;
+
+  &,
+  &:link,
+  &:visited,
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.#{$component} {
+
+  display:inline-block;
+
+  &1 {
+  font-weight: 300;
+  font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(6), 'layout');
+  padding: 0 24px;
+  position: relative;
+  min-height: 52px;
+
+  &-res-nolabel {
+    @include media-breakpoint-down(md) {
+      height: 52px;
+      width: 52px;
+      padding: 18px 0;
+      text-align: center;
+      .c-btn__inner {
+        justify-content: center;
+      }
+      .c-btn__label {
+        display: none;
+      }
+    }
+  }
+  &::after {
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+  }
+
+  //Sizes
+
+  //Small
+  &--size-s{
+    font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(3), 'layout');
+    // line-height: getCmpToken($cmp-tokens, 'lh-btnmedium', tokenTypoSizeLh(3), 'layout');
+    line-height: 36px;
+    padding: 0 16px;
+  }
+
+  //Default and medium
+  &--size-m {
+    font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(6), 'layout');
+    // line-height: getCmpToken($cmp-tokens, 'lh-btnmedium', tokenTypoSizeLh(6), 'layout');
+    line-height: 50px;
+    &-res1 {
+      @include media-breakpoint-down(md) {
+        // font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(3), 'layout');
+      // line-height: getCmpToken($cmp-tokens, 'lh-btnmedium', tokenTypoSizeLh(3), 'layout');
+      font-size: 16px;
+      line-height: 48px;
+      padding: 0 16px;
+      }
+    }
+  }
+
+  //Largev
+  &--size-l{
+    font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(9), 'layout');
+    line-height: getCmpToken($cmp-tokens, 'lh-btnmedium', tokenTypoSizeLh(9), 'layout');
+    &-res1 {
+      @include media-breakpoint-down(md) {
+        font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(6), 'layout');
+      line-height: getCmpToken($cmp-tokens, 'lh-btnmedium', tokenTypoSizeLh(6), 'layout');
+      }
+    }
+  }
+
+  &--size-xl{
+    font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(12), 'layout');
+    line-height: getCmpToken($cmp-tokens, 'lh-btnmedium', tokenTypoSizeLh(12), 'layout');
+    &-res1 {
+      @include media-breakpoint-down(md) {
+        font-size: getCmpToken($cmp-tokens, 'fs-btnmedium', tokenTypoSizeFs(9), 'layout');
+      line-height: getCmpToken($cmp-tokens, 'lh-btnmedium', tokenTypoSizeLh(9), 'layout');
+      }
+    }
+  }
+
+  &--has-icon {
+    position: relative;
+    overflow: hidden;
+    .#{$component}1__label {
+      font-size: getCmpToken($cmp-tokens, 'fs-btn', 14px, 'layout');
+      line-height: getCmpToken($cmp-tokens, 'lh-btn', 14px, 'layout');
+      padding-right:getCmpToken($cmp-tokens, 'spacer-label-pl', tokenSpacer(1), 'layout');
+    }
+    .#{$component-prefix}icon {
+      &-size-sm{
+        font-size:getCmpToken($cmp-tokens, 'fs-icon-size-sm', tokenIconSize(3), 'layout');
+      }
+      &-size-md{
+        font-size:getCmpToken($cmp-tokens, 'fs-icon-size-md', tokenIconSize(4), 'layout');
+        &-res1 {
+          @include media-breakpoint-down(md) {
+            font-size:getCmpToken($cmp-tokens, 'fs-icon-size-md', tokenIconSize(3), 'layout');
+          }
+        }
+      }
+      &-size-lg{
+        font-size:getCmpToken($cmp-tokens, 'fs-icon-size-lg', tokenIconSize(9), 'layout');
+        &-res1 {
+          @include media-breakpoint-down(md) {
+            font-size:getCmpToken($cmp-tokens, 'fs-icon-size-md', tokenIconSize(6), 'layout');
+          }
+        }
+      }
+    }
+  }
+
+}
+
+}

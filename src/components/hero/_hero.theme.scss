@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+@import "../../assets/scss/components/tokens/hero.style";
+
+$component: componentClass("hero");
+$cmp-tokens: ();
+
+@if ($zaux-hero-style-tokens){
+    $cmp-tokens : $zaux-hero-style-tokens;
+}
+
+.#{$component} {
+
+
+}

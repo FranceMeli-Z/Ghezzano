@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("wrapper");
+
+.#{$component} {
+
+  &--w1 {
+      max-width: 1640px;
+      margin-right: auto;
+      margin-left: auto;
+      // padding-left: 48px;
+      // padding-right: 48px;
+      // @include media-breakpoint-down(md) {
+      //   padding-right: 32px;
+      //   padding-left: 32px;
+      // }
+  }
+  &--w2 {
+    max-width: 1088px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+}
+
+// [class*="#{$component}--"] {
+//   margin-right: auto;
+//   margin-left: auto;
+// }
+

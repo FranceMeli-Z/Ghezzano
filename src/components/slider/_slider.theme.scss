@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+$component: componentClass("slider");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-slider-style-tokens)){
+    $cmp-tokens : $zaux-slider-style-tokens;
+}
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+.zaux-theme--light1 .#{$component}{
+    .#{$component}__pagination{
+        --swiper-theme-color:#{getCmpToken($cmp-tokens, 'color-active-bullet', tokenColor('set1', 'color1'), 'theme-light1' )};
+        --swiper-pagination-bullet-inactive-color: #{getCmpToken($cmp-tokens, 'color-inactive-bullet', tokenColor('set1', 'color4'), 'theme-light1' )};
+    }
+}
+.zaux-theme--dark1 .#{$component} {
+  & .swiper-navigation {
+    & .c-icon-current {
+      color: white;
+    }
+    & .c-icon-hover {
+      color: white;
+    }
+  }
+}

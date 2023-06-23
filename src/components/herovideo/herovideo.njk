@@ -1,0 +1,106 @@
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/img/img.njk' as Img %}
+
+{% macro content(obj, content) %}
+
+  {% set componentClassName = 'c-herovideo' %}
+
+  {% set configDefault = {
+    "className": [],
+    "innerClassName": []
+  } %}
+
+  {% set obj = configDefault | merge(obj or {}) %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+  {% set _innerClassName = [] | mergeArray(obj.innerClassName or configDefault.innerClassName) %}
+
+  <div
+    {% if obj.htmlId %}id="{{obj.htmlId}}"{% endif %}
+    class="{{_className | join(" ")}}"
+    {% if obj.ytVidId %}data-yt-vid-id="{{obj.ytVidId}}"{% endif %}
+    {% if obj.isAutoplay %} data-autoplay="true"{% endif %}
+    data-js-component="HeroVideo"
+  >
+    <div class="{{componentClassName}}__inner {{_innerClassName | join(" ")}} {% if content == "404" %} {{componentClassName}}__inner--404 {% endif %} gradient-blue2">
+
+      {{
+        Img.content(obj.imgCover)
+      }}
+
+      {% if obj.showPlayBtn %}
+        <div class="{{componentClassName}}__btn--play position-absolute top-0 w-100 h-100 justify-content-center d-flex align-items-center">
+           {{
+            Icon.content({
+              "className": ["zaux-color-set1-red1"],
+              "iconName": "icozaux1-videoplay",
+              "iconSvgUrl": app.fonts.icozaux1.url
+            })
+          }}
+        </div>
+      {% endif %}
+
+      {% if obj.sources and not obj.ytVidId %}
+        <{{"script"}} class="{{componentClassName}}__instance-html-template" type="text/template">
+          <video class="{{componentClassName}}__instance zaux-fit-of-cover-50-50" loop muted playsinline>
+            {% for s in obj.sources %}
+              <source src="{{s.src}}" type="{{s.mime}}"/>
+            {% endfor %}
+            {{lang.html5_video_no_support or "Your browser does not support the video tag."}}
+          </video>
+        </{{"script"}}>
+      {% else %}
+        <div class="{{componentClassName}}__instance"></div>
+      {% endif %}
+
+        <div class="{{componentClassName}}__content d-flex align-items-center justify-content-center">
+          <div class="{{componentClassName}}__content--wrapper position-relative zaux-theme--dark1 text-center">
+            {% if content == "home" %}
+            <h2 class="{{componentClassName}}__content--title c-typo-fs-13 c-typo-fs-md-16 c-typo-fs-lg-24 fw-medium font-zaux2 text-uppercase">#Vantiamocene</h2>
+            {% endif %}
+            {% if content == "404" %}
+              <h2 class="{{componentClassName}}__content--title c-typo-fs-13 c-typo-fs-md-16 c-typo-fs-lg-24 fw-medium font-zaux2 text-uppercase">404</h2>
+              <div class="{{componentClassName}}__content--text c-typo-fs-9 c-typo-fs-sm-12 c-typo-fs-md-14 font-zaux2 text-uppercase mb-4">
+                <p>Questa pagina non esiste, </br> ma puoi vantarti di tutto il resto</p>
+              </div>
+              <div class="">
+                <a href="#defaultLink" class="c-btn c-btn1  c-btn--primary-light c-btn1--size-m c-btn1--size-m-res1">
+                  <span class="c-btn__label">Torna alla home</span>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+          <!-- .{{componentClassName}}__content -->
+        </div>
+        <!-- .{{componentClassName}}__content-wrapper -->
+
+    </div>
+    <!-- .{{componentClassName}}__inner -->
+  </div>
+  <!-- .{{componentClassName}} -->
+
+{% endmacro %}
+
+
+{# <div class="c-herovideo js-component--loaded c-herovideo--state-canplay c-herovideo--state-playing" data-autoplay="true" data-js-component="HeroVideo"><div class="c-herovideo__inner c-fx--gradient-black1-o15 c-fx--overlay1-brown1-o30 c-ratio--10-17 c-ratio--lg-160-83">
+  <picture class="c-img c-herovideo__cover h-100"> <source srcset="https://atiproject.com/wp-content/uploads/2022/02/frame-home-854x480.jpg" media="(max-resolution: 119dpi) and (max-width: 991px)">
+    <source srcset="https://atiproject.com/wp-content/uploads/2022/02/frame-home-1280x720.jpg" media="(min-resolution: 120dpi) and (max-width: 991px)">
+    <source srcset="https://atiproject.com/wp-content/uploads/2022/02/frame-home-1920x1080.jpg" media="(max-resolution: 119dpi) and (min-width: 992px)">
+    <source srcset="https://atiproject.com/wp-content/uploads/2022/02/frame-home.jpg" media="(min-resolution: 120dpi) and (min-width: 992px)">
+    <img src="https://atiproject.com/wp-content/uploads/2022/02/frame-home-1920x1080.jpg" srcset="https://atiproject.com/wp-content/uploads/2022/02/frame-home-1920x1080.jpg 1x, https://atiproject.com/wp-content/uploads/2022/02/frame-home.jpg 2x" class="zaux-fit-cover-center-center position-absolute top-0 start-0 w-100 h-100" width="1920" height="1080" alt="Video Cover">
+  </picture>
+  <video class="c-herovideo__instance zaux-fit-cover-center-center" loop="" muted="" playsinline="" autoplay="">
+    <source src="https://atiproject.com/wp-content/uploads/2022/02/ati-home.mp4" type="video/mp4">
+    Il tuo browser web non supporta il tag video HTML5.
+  </video>
+  <script class="c-herovideo__instance-html-template" type="text/template">
+    <video class="c-herovideo__instance zaux-fit-cover-center-center" loop muted playsinline>
+      <source src="https://atiproject.com/wp-content/uploads/2022/02/ati-home.mp4" type="video/mp4"/>
+      Il tuo browser web non supporta il tag video HTML5.
+    </video>
+  </script>
+  <div class="c-herovideo__content-wrapper d-flex align-items-center"><div class="c-herovideo__content w-100">
+    <div class="c-wrapper--w1"><div class="text-center"><p class="zaux-color-default-white c-typo-fs-16 c-typo-fs-lg-20 c-typo-ls-30 c-typo-ts-1 c-typo-lh-64 text-uppercase">Creating <br class="d-inline d-lg-none">a better <br class="d-inline d-lg-none">reality</p></div>
+    </div></div></div></div>
+          </div> #}

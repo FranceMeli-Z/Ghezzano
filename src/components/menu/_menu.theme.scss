@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+@import "../../assets/scss/components/tokens/menu.style";
+
+$component: componentClass("menu");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-header-style-tokens)){
+    $cmp-tokens : $zaux-header-style-tokens;
+}
+
+.#{$component} {
+
+      &--var1.open {
+
+        & .#{$component}__inner {
+          background-color: tokenColor(set1,darkbrown);
+          color: white;
+        }
+        & .#{$component}__nav {
+          &--item {
+            border-bottom: 1px solid tokenColor(set1,yellow1);
+          }
+        }
+      }
+}

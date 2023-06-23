@@ -1,0 +1,62 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/share/share.njk' as Share %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-modsection1' %}
+
+  {% set configDefault = {
+    "className": [""],
+    "titleTag" : "h6"
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  {# HTML HERE #}
+
+  <div class="{{_className | join(" ") | trim}} c-modsection" data-value="Sezione_Dettagli">
+    <div class="{{componentClassName}}__inner row gx-2">
+        <div class="{{componentClassName}}__img col-12 col-md-6 pb-6 pb-md-0">
+          {{
+                  Img.content({
+                    "mainSrc" : '../../media/ImmgineTest.png',
+                  "sourceList" : '../../media/ImmgineTest.png',
+                            "lazyload": true,
+                            "imgWidth": 500,
+                            "imgHeight": 500,
+                            "className": ["h-100"],
+                            "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","w-100"],
+                            "title": "title",
+                            "imgAlt": "alt"
+                          })
+                }}
+        </div>
+        <div class="{{componentClassName}}__content col-12 col-md-6">
+          <div class="{{componentClassName}}__content--txt c-typo-style1-6 fw-light mb-4">
+            <p>{{ obj.txt }}</p>
+          </div>
+          <div class="{{componentClassName}}__content--listing">
+            {% for i in range(0, 6) %}
+                <div class="{{componentClassName}}__listing--item border-top-yellow d-flex flex-row align-items-center">
+                    {{
+                          Icon.content({
+                            "className": ["c-icon--size-3 zaux-color-set1-yellow1"],
+                            "iconFamily": "icozaux1",
+                            "iconName": "phone"
+                          })
+                        }}
+                    <span class="c-typo-fs-6 ps-4 ">Tipologia: <strong>bifamiliare</strong></span>
+                </div>
+           {% endfor %}
+          </div>
+        </div>
+    </div>
+  </div>
+
+{% endmacro %}

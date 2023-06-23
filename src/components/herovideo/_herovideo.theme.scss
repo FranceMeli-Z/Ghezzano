@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("herovideo");
+
+////////////////////////////////////////////////////
+// Theme: Dark1
+//////////////////////////////////////////////////
+
+.#{$component} {
+  // &__btn--play {
+  // }
+
+}

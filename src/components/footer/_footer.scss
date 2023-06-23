@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/tokens/footer.style";
+
+$component: componentClass("footer");
+$cmp-tokens: ();
+
+@if ($zaux-footer-style-tokens){
+    $cmp-tokens : $zaux-footer-style-tokens;
+}
+
+.#{$component} {
+  &__row1 {
+    height: 52px;
+  }
+  &__infobtn {
+    display: flex;
+    & > a {
+      display: block;
+    }
+    &--tel {
+      @include media-breakpoint-down(md) {
+        display: none !important;
+      }
+    }
+  }
+
+  &__nav {
+    & nav {
+      @include media-breakpoint-down(md){
+        display: none;
+      }
+        ul {
+        display: flex;
+
+        & li {
+          padding: 0 24px;
+          line-height: 52px;
+          font-weight: 300;
+          position: relative;
+          & a {
+            display: block;
+            height: 100%;
+          }
+          &::after {
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: '';
+            background-color: transparent;
+            transition: all .3s ease-out;
+          }
+          &:hover {
+            &::after {
+              background-color: tokenColor(set1,white1);
+              transition: all .3s ease-out;
+            }
+          }
+        }
+      }
+    }
+  }
+&__hamburger {
+    display: none;
+    padding-left: 16px;
+
+  &--btn {
+    height: 16px;
+    width: 16px;
+  }
+  &--inner {
+    position: relative;
+    display: block;
+    height: 100%;
+  }
+  &--line {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    display: block;
+    background-color: #FFFFFF;
+    &--1 {
+      top: 0;
+    }
+    &--2 {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &--3 {
+      bottom: 0;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    display: block;
+  }
+}
+
+&__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+  &__row2--info {
+    & ul {
+      & li {
+        display: inline-block;
+        @include media-breakpoint-down(md){
+          display: block;
+          margin: 32px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        & a {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+    &__credits{
+      @include media-breakpoint-up(lg) {
+        padding-top: getCmpToken($cmp-tokens, 'spacer-credits-py', tokenSpacer(4), 'layout');
+        padding-bottom: getCmpToken($cmp-tokens, 'spacer-credits-py', tokenSpacer(4), 'layout');
+        &-icon {
+          position: absolute;
+          right: 16px;
+          top: 0;
+        }
+      }
+        font-size: getCmpToken($cmp-tokens, 'fs-credits', tokenTypoSizeFs(6), 'layout');
+        font-weight: 300;
+      &--inner {
+        @include media-breakpoint-down(lg){
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+
+}

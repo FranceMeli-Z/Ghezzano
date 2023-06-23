@@ -1,0 +1,22 @@
+{
+
+  "img" : {
+    "mainUrl" : "assets/img/PielleTeam.png",
+    "sourceList" : [
+        {
+          "url" : "../assets/img/PielleTeam.png",
+          "url2x" : "../assets/img/PielleTeam.png"
+        }
+    ]
+  },
+  "img2" : {
+    "mainUrl" : "assets/img/Doctor.png",
+    "sourceList" : [
+        {
+          "url" : "../assets/img/Doctor.png",
+          "url2x" : "../assets/img/Doctor.png"
+        }
+    ]
+  }
+
+}

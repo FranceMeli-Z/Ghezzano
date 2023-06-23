@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/tokens/btn.style";
+
+$component: componentClass("btn");
+$cmp-tokens: ();
+
+@if ($zaux-btn-style-tokens){
+    $cmp-tokens : $zaux-btn-style-tokens;
+}
+
+$c-btn-hover-color-shift-factor: 10%;
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+@mixin button-primary-light1 {
+    color: tokenColor('set1',darkgreen);
+    border: 1px solid tokenColor('set1', 'yellow1');
+    &::after {
+      background-color: transparent;
+      transition: all .3s ease;
+    }
+    &:hover {
+      &::after {
+        background-color: tokenColor(set1,yellow1);
+        transition: all .3s ease;
+      }
+      color: tokenColor('set1',darkgreen);
+    }
+}
+
+////////////////////////////////////////////////////
+// Theme: dark1
+////////////////////////////////////////////////////
+///
+@mixin button-primary-dark1 {
+  color: tokenColor('set1','white1');
+  border: 1px solid tokenColor('set1', 'lightblue');
+  &::after {
+    background-color: transparent;
+    transition: all .3s ease;
+  }
+  &:hover {
+    &::after {
+      background-color: tokenColor(set1,white1);
+      transition: all .3s ease;
+    }
+    color: tokenColor('set1', white1);
+  }
+
+}
+
+@mixin button-primary-dark2 {
+  color: tokenColor('set1','white1');
+  border: 1px solid tokenColor('set1', yellow1);
+  &::after {
+    background-color: transparent;
+    transition: all .3s ease;
+  }
+  &:hover {
+    &::after {
+      background-color: tokenColor(set1,yellow1);
+      transition: all .3s ease;
+    }
+    color: tokenColor('set1', white1);
+  }
+}
+
+  @mixin button-primary-dark3 {
+    color: tokenColor('set1','white1');
+    // border: none;
+    border-bottom: 1px solid tokenColor('set1', yellow1);
+    &::after {
+      background-color: transparent;
+      transition: all .3s ease;
+    }
+    &:hover {
+      &::after {
+        background-color: tokenColor(set1,yellow1);
+        transition: all .3s ease;
+      }
+      color: tokenColor('set1', white1);
+    }
+}
+
+.#{$component} {
+    &--primary-light {
+        @include button-primary-light1;
+    }
+}
+
+.#{$component} {
+  &--primary-dark {
+      @include button-primary-dark1;
+  }
+  &--secondary-dark {
+    @include button-primary-dark2;
+  }
+  &--tertiary-dark {
+    @include button-primary-dark3;
+  }
+
+}
+
+

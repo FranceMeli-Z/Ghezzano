@@ -1,0 +1,79 @@
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% macro content(obj) %}
+
+<div class="c-slider h-100 c-slider-theme-light pt-6 pb-0 py-md-6 position-relative"  data-config='{{component_slider.sliderHero.config | dump | safe}}' data-js-component="Slider">
+  <div class="c-slider__wrapper h-100">
+    <div class="c-slider__instance swiper swiper-container h-100">
+
+      <div class="swiper-wrapper">
+          {%
+                  set _decoVariations = [
+                    "deco1-l-t",
+                    "deco1-l-t",
+                    "deco1-l-t"
+                  ]
+                %}
+         {# Da aggiungere nel json "loop": true #}
+
+        {% for decoVariation in _decoVariations %}
+
+          <div class="swiper-slide">
+
+            <div class="position-relative d-flex align-items-end">
+              <div class="position-absolute h-100 w-100">
+                        {{
+                Img.content({
+                  "mainSrc" : '../../media/ImmgineTest.png',
+                  "sourceList" : '../../media/ImmgineTest.png',
+                          "lazyload": true,
+                          "imgWidth": 500,
+                          "imgHeight": 500,
+                          "className": ["green-bg-50 h-100"],
+                          "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100"],
+                          "title": "title",
+                          "imgAlt": "alt"
+                        })
+              }}
+              </div>
+              <div class="w-100 zaux-zi-1 py-6 px-4 px-md-8 py-md-10 zaux-theme--dark1">
+                <h2 class="c-typo-fs-15 c-typo-fs-md-18 mb-1 fw-regular fw-semi font-zaux2">{{obj.title|safe}}</h2>
+                  <div class="c-typo-style1-6 fw-light maw-f748">
+                    <p>{{obj.subtitle|safe}}</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+                  <!-- .col-* -->
+          {% endfor %}
+      </div>
+    </div>
+    <!-- .c-slider__instance -->
+  </div>
+  <!-- .c-slider__wrapper -->
+  <div class="swiper-pagination"></div>
+  <div class="c-slider__navigation">
+    <div class="swiper-button-next">
+       {{
+                              Icon.content({
+                                "className": ["zaux-color-set1-yellow1"],
+                                "iconFamily": "icozaux1",
+                                "iconName": "arrow-right"
+                              })
+                            }}
+    </div>
+    <div class="swiper-button-prev">
+       {{
+                              Icon.content({
+                                "className": ["zaux-color-set1-yellow1"],
+                                "iconFamily": "icozaux1",
+                                "iconName": "arrow-right"
+                              })
+                            }}
+    </div>
+  </div>
+</div>
+
+{% endmacro %}
+

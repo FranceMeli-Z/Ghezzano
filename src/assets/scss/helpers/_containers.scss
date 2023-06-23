@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+//////////////////////////////////////////////////
+// CONTAINER - HELPERS
+//////////////////////////////////////////////////
+
+.container-l {
+    padding: 0 64px;
+    @include media-breakpoint-down(xl) {
+      padding: 0 32px;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 0 16px;
+    }
+}
+.container-hero {
+  padding: 0 64px;
+    @include media-breakpoint-down(xl) {
+      padding: 0 32px;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 0;
+    }
+}
+

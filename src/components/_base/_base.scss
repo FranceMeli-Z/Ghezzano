@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+@import "../../assets/scss/components/tokens/base.style";
+
+$component: componentClass("base");
+$cmp-tokens: ();
+
+@if ($zaux-base-style-tokens){
+    $cmp-tokens : $zaux-base-style-tokens;
+}
+
+.#{$component} {
+}

@@ -1,0 +1,146 @@
+{# Sets the layout to be extended #}
+{% extends "layouts/component.njk" %}
+
+{# Sets page-specific variables #}
+{% set page = {
+  "data": page_component,
+  "title": "Display block 1"
+} %}
+
+{# Imports components #}
+{% import 'components/displayblock1/displayblock1.njk' as DisplayBlock1 %}
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="../assets/css/general.bundle.css">
+{% endblock %}
+
+{% block content %}
+  <div class="mb-16">
+    <h2>DisplayBlock tipo 1 </h2>
+   {{ DisplayBlock1.content({
+    "fullpage": {
+      "textblock": {
+        "className": ["zaux-theme--light1"],
+        "pagetitle": "Chi siamo",
+        "contenttitle": "La nostra storia",
+        "abstract": "La Pallacanestro Livorno nasce ufficialmente nel 1960 con l’ausilio della Compagnia dei Portuali. Le vere origini della società risalgono al 1950,
+                    quando venne completata la ricostruzione post bellica del Circolo Ricreativo del Cantiere Navale e l’immediata creazione della sezione pallacanestro. Alternando partecipazioni
+                    di seconda e terza serie (allora chiamati di Serie A e B) fino alla riforma dei campionati del 1965, la Pallacanestro centrerà la promozione in Serie A2 nella stagione 1979/80
+                    in concomitanza con il primo scudetto giovanile firmato dall’Under 21.",
+        "text": "Nel 1984/85 arriva finalmente anche il grande salto in A1 e nello stesso anno pure lo sculettino Juniores. Sempre a livello giovanile, nel 1988 la PL vince il titolo italiano Ragazzi,
+                ottenendo il bis nell’anno successivo, quando, al termine dei playout, retrocede in Serie A2. Durante la medesima stagione avviene anche l’esordio europeo in Coppa Korac con una doppia sconfitta
+                contro i cecoslovacchi dello Slonvnft Bratislava.
+                Il 28 giugno del 1991 la società si fonde con la Libertas Livorno: nasce la Libertas Pallacanestro Livorno in cui confluisce parte della vecchia dirigenza piellina. La PL di fatto sparisce dall’atlante
+                dei canestri, abbandona il professionismo ma continua la sua attività iscrivendosi al campionato di Promozione e trovando nel 1998 addirittura il titolo nazionale Allievi sotto la guida di coach Luca Bechi.
+                La PL raggiungerà, dopo una serie di promozioni, il campionato di Serie B d’Eccellenza (professionistico) nel 2000/01 ma al termine della stagione, a causa di problemi finanziari, dovrà nuovamente interrompere
+                 il percorso di crescita.
+                Ripartendo per l’ennesima volta dalla Promozione, la Pallacanestro Livorno (oggi A.S.D. Pielle Livorno) conquista la Serie D al termine della stagione 2006/07 e la Serie C nel 2013/14, Nel 2016/2017
+                la Pielle disputa un grandissimo campionato di Serie C Gold vincendo la regular season e arrivando alla finale promozione per la B. La storia si ripete anche l’anno successivo: i ragazzi, sotto la
+                guida di coach Andrea Da Prato, chiudono 7° e con una scalata impressionante tornano in finale, alzando bandiera bianca dinanzi alla Virtus Siena."
+              }
+    }
+  }) }}
+
+  </div>
+
+  <div class="mb-16">
+    <h2>DisplayBlock tipo 2 </h2>
+    {{ DisplayBlock1.content({
+    "sidebar": {
+      "textblock": {
+          "className": ["zaux-theme--light1"],
+          "contatti": {
+              "pagetitle": "Dove siamo"
+            }
+          },
+      "form": "y"
+    }
+    })
+  }}
+
+  </div>
+
+  <div class="py-16 mb-16">
+    <h2>DisplayBlock tipo 3 </h2>
+    <section id="gallery">
+  <div class="container">
+    <div id="image-gallery">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/500"><img src="https://unsplash.it/500" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/600"><img src="https://unsplash.it/600" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/700"><img src="https://unsplash.it/700" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/800"><img src="https://unsplash.it/800" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/900"><img src="https://unsplash.it/900" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/1000"><img src="https://unsplash.it/1000" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/1100"><img src="https://unsplash.it/1100" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+          <div class="img-wrapper">
+            <a href="https://unsplash.it/1200"><img src="https://unsplash.it/1200" class="img-responsive"></a>
+            <div class="img-overlay">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div><!-- End row -->
+    </div><!-- End image gallery -->
+  </div><!-- End container -->
+</section>
+
+  </div>
+
+
+{% endblock %}
+
+{% block foot_js %}
+  <script defer src="../assets/js/general.bundle.js"></script>
+{% endblock %}

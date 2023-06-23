@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("card2");
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+.#{$component} {
+
+  &__inner {
+    border: 1px solid tokenColor(set1,yellow1);
+  }
+
+  &__head {
+    color: tokenColor(set1,yellow1);
+  }
+  &__listing {
+    &--item {
+      &:last-child {
+        border-bottom: 1px solid tokenColor(set1,yellow1);
+      }
+      & i {
+        color: tokenColor(set1,yellow1);
+      }
+    }
+  }
+}
+
+////////////////////////////////////////////////////
+// Theme: Dark1
+////////////////////////////////////////////////////
+

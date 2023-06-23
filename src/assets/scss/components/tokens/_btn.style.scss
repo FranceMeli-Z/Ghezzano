@@ -1,0 +1,19 @@
+$zaux-btn-style-tokens:(
+  layout: (
+    fs-btn: 16px,
+    fw-btn: $zaux-typo-fw-semibold,
+    fs-icon-size-sm: tokenIconSize(2)
+  ),
+  theme-light1: (
+    color-cmp-bg: tokenColor('set1','white1'),
+    color-cmp-txtcolor: tokenColor( set1, darkblue ),
+    color-cmp-bg-h: tokenColor(set1, darkblue),
+    color-cmp-txtcolor-h: tokenColor( set1, white1 )
+  ),
+  theme-dark1: (
+    color-cmp-txtcolor: tokenColor('set1','white1'),
+    color-cmp-bg: tokenColor( set1, darkblue ),
+    color-cmp-bg-h: tokenColor( set1, lightblue ),
+    color-cmp-txtcolor-h: tokenColor( set1, darkblue )
+  )
+);

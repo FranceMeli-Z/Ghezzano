@@ -1,0 +1,60 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+
+{% macro content(obj) %}
+
+    {% set componentClassName = 'c-card1' %}
+
+    {% set configDefault = {
+    "className": [""],
+    "isHome": false
+    }%}
+
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+    {# Creates new arrays for manipulation) #}
+    {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+    <article class="{{componentClassName}} zaux-theme--light1 h-100">
+      <a href="#" class="d-block h-100" data-bs-toggle="modal" data-bs-target="#ModaleTipologia{{obj.id}}">
+        <div class="{{componentClassName}}__inner">
+          <div class="{{componentClassName}}__img mb-4">
+                {{
+                  Img.content({
+                    "mainSrc" : '../../media/ImmgineTest.png',
+                  "sourceList" : '../../media/ImmgineTest.png',
+                            "lazyload": true,
+                            "imgWidth": 278,
+                            "imgHeight": 320,
+                            "className": ["c-ratio--card h-100 position-relative"],
+                            "imgClassName": ["w-100 h-100 zaux-fit-of-cover-50-50 position-absolute top-0 start-0"],
+                            "title": "title",
+                            "imgAlt": "alt"
+                          })
+                        }}
+            </div>
+
+            <div class="{{componentClassName}}__content">
+
+              <h4 class="{{componentClassName}}__content--title font-zaux2 c-typo-fs-9 fw-semi text-center">{{obj.title}}</h4>
+
+              <span class="{{componentClassName}}__content--info text-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-md"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "info"
+                  })
+                }}
+                <span class="ps-1 fw-light">Informazioni</span>
+              </span>
+
+
+            </div>
+        </div>
+      </a>
+    </article>
+
+{% endmacro %}

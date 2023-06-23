@@ -1,0 +1,71 @@
+{
+    "slides" : [
+        {
+            "eyelet" : "Eyelet here",
+            "title" : "Product title here",
+            "subtitle" : "Subtitle lorem ipsum dolor sit amet",
+            "discountPercentage" : "-20%",
+            "ctaLabel" : "Buy now",
+            "img" : {
+                "mainUrl" : "https://via.placeholder.com/1238x595",
+                "sourceList" : [
+                    {
+                        "breakpoint" : "md",
+                        "url" : "https://via.placeholder.com/1238x595",
+                        "url2x" : "https://via.placeholder.com/1857x893"
+                    }
+                ]
+            }
+        },
+        {
+            "eyelet" : "Eyelet here",
+            "title" : "Product title here",
+            "subtitle" : "Subtitle lorem ipsum dolor sit amet",
+            "ctaLabel" : "Buy now",
+            "img" : {
+                "mainUrl" : "https://via.placeholder.com/1238x595",
+                "sourceList" : [
+                    {
+                        "breakpoint" : "md",
+                        "url" : "https://via.placeholder.com/1238x595",
+                        "url2x" : "https://via.placeholder.com/1857x893"
+                    }
+                ]
+            }
+        },
+        {
+            "eyelet" : "Eyelet here",
+            "title" : "Product title here",
+            "subtitle" : "Subtitle lorem ipsum dolor sit amet",
+            "discountPercentage" : "-80%",
+            "ctaLabel" : "Buy now",
+            "img" : {
+                "mainUrl" : "https://via.placeholder.com/1238x595",
+                "sourceList" : [
+                    {
+                        "breakpoint" : "md",
+                        "url" : "https://via.placeholder.com/1238x595",
+                        "url2x" : "https://via.placeholder.com/1857x893"
+                    }
+                ]
+            }
+        },
+        {
+            "eyelet" : "Eyelet here",
+            "title" : "Product title here",
+            "subtitle" : "Subtitle lorem ipsum dolor sit amet",
+            "discountPercentage" : "15%",
+            "ctaLabel" : "Buy now",
+            "img" : {
+                "mainUrl" : "https://via.placeholder.com/1238x595",
+                "sourceList" : [
+                    {
+                        "breakpoint" : "md",
+                        "url" : "https://via.placeholder.com/1238x595",
+                        "url2x" : "https://via.placeholder.com/1857x893"
+                    }
+                ]
+            }
+        }
+    ] 
+}

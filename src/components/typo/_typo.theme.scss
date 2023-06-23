@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("typo");
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+.zaux-theme--light1 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: tokenColor(set1, darkbrown);
+  }
+
+  a {
+    @at-root .#{$zaux-system-classname-loaded} & {
+      transition: color $zaux-transition-1, opacity $zaux-transition-1;
+    }
+    &:hover {
+      // color: tokenColor("set1", darkbrown);
+    }
+  }
+
+  ul li {
+    // &:before {
+    //   color: tokenColor("set1", "cyan1");
+    // }
+  }
+
+  strong,
+  b {
+    color: tokenColor("set1", "black1");
+  }
+}
+
+////////////////////////////////////////////////////
+// Theme: Dark1
+////////////////////////////////////////////////////
+
+.zaux-theme--dark1 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: tokenColor(default, white);
+
+  }
+
+  a {
+    @at-root .#{$zaux-system-classname-loaded} & {
+      transition: color $zaux-transition-1, opacity $zaux-transition-1, background-color $zaux-transition-1;
+    }
+    &:hover {
+      color: tokenColor("set1", white);
+    }
+  }
+  strong,
+  b {
+    color: tokenColor( default , white );
+  }
+}

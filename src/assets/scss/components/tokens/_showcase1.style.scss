@@ -1,0 +1,20 @@
+$zaux-showcase1-style-tokens:(
+  layout: (
+    spacer-inner-py: tokenSpacer(9),
+    fs-pretitle: tokenTypoSizeFs(6),
+    fs-title: tokenTypoSizeFs(16),
+    fs-subtitle: tokenTypoSizeFs(12),
+    lh-pretitle: tokenTypoSizeLh(9),
+    lh-title: tokenTypoSizeLh(16),
+    lh-subtitle: tokenTypoSizeLh(6),
+    ls-pretitle: tokenLetterSpacing(1),
+    spacer-pretitle-mb: tokenSpacer(7),
+    spacer-title-mb: tokenSpacer(4),
+    spacer-head-mb: tokenSpacer(7),
+    spacer-body-py: tokenSpacer(6)
+  ),
+  theme-light1: (
+    color-bg-cmp: tokenColor('set1', 'white1'),
+    color-title: tokenColor('set1', 'color2')
+  )
+);

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+$component: componentClass("modsection1");
+
+.#{$component} {
+
+  &__listing--item {
+    &:last-child() {
+      border-bottom: 1px solid tokenColor(set1,yellow1);
+    }
+  }
+
+}

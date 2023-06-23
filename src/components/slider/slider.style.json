@@ -1,0 +1,5 @@
+{
+    "theme-light1":{
+        "color-active-bullet" : "tokenColor('set1','color1')"
+    }
+}

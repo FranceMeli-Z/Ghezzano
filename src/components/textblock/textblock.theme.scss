@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/tokens/textblock.style";
+
+$component: componentClass("textblock");
+$cmp-tokens: ();
+
+@if ($zaux-textblock-style-tokens){
+    $cmp-tokens : $zaux-textblock-style-tokens;
+}
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+
+.#{$component}{
+
+  &__listing {
+    &--item {
+      & span {
+        color: tokenColor(set1,darkbrown);
+      }
+    }
+  }
+}

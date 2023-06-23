@@ -1,0 +1,15 @@
+$zaux-cardicon1-style-tokens:(
+  layout: (
+    spacer-inner-pxy: tokenSpacer(6),
+    ctypo-body-title: 12,
+    spacer-head-icon-mb: tokenSpacer(6),
+    fw-body-title: $zaux-typo-fw-bold
+  ),
+  theme-light1: (
+    color-cmp-bg: tokenColor('set1', 'color1'),
+    color-cmp-textcolor: tokenColor('set1','color2'),
+    radius-cmp: 1,
+    css-inner-txtalign: center,
+    color-icon: tokenColor('set1','white1')
+  )
+);

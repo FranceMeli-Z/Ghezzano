@@ -1,0 +1,37 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% macro content(obj) %}
+
+    {% set componentClassName = 'c-breadcrumbs' %}
+
+    {% set configDefault = {
+    "className": [""],
+    "isHome": false
+    }%}
+
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+    {# Creates new arrays for manipulation) #}
+    {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+    <div class="{{_className | join(" ")}} c-breadcrumbs--zi">
+        <p id="breadcrumbs">
+            <span>
+                <span>
+                    <a href="#crumb1">Home > </a>
+                    <span>
+                        <a href="#crumb2">Level 1 > </a>
+                        <span>
+                            <a href="#product">Sub Level 1 > </a>
+                            <span class="breadcrumb_last" aria-current="page">
+                              Sub Level 2
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </p>
+    </div>
+
+{% endmacro %}

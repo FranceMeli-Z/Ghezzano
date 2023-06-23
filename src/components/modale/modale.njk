@@ -1,0 +1,182 @@
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/modsection1/modsection1.njk' as ModSection1 %}
+{% import 'components/modsection2/modsection2.njk' as ModSection2 %}
+{% import 'components/modsection3/modsection3.njk' as ModSection3 %}
+{% import 'components/modsection4/modsection4.njk' as ModSection4 %}
+{% import 'components/modsection5/modsection5.njk' as ModSection5 %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-modale' %}
+
+<div class="{{componentClassName}} modal zaux-theme--dark1" id="ModaleTipologia{{obj.ids}}" tabindex="-1" aria-labelledby="ModaleTipologia{{obj.ids}}" aria-hidden="true" role="dialog">
+  <div class="modal-dialog">
+    <div class="{{componentClassName}}__inner h-100 zaux-theme--dark1">
+      <div class="{{componentClassName}}__title mb-4">
+        <h4 class="text-center font-zaux2 fw-semi c-typo-fs-12 c-typo-fs-md-15 mb-1">{{ obj.title }}</h4>
+      </div>
+
+      <div class="{{componentClassName}}__tab">
+        <ul class="{{componentClassName}}__tab--list">
+          <li class="me-4 d-flex d-md-none ">
+             <a href="#ChiudiModale" class="{{componentClassName}}__infobtn--brochure c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m" data-bs-dismiss="modal" aria-label="Close">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-sm"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "close"
+                  })
+                }}
+                <span class="c-btn__label ps-2">Chiudi</span>
+              </span>
+            </a>
+          </li>
+          <li class="{{componentClassName}}__tab--item active" data-tab="Sezione_Dettagli">
+             <span class="d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": [""],
+                  "iconFamily": "icozaux1",
+                  "iconName": "list-bulleted"
+                })
+              }}
+              <span>Dettagli</span>
+            </span>
+          </li>
+          <li class="{{componentClassName}}__tab--item" data-tab="Sezione_Foto">
+             <span class="d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": [""],
+                  "iconFamily": "icozaux1",
+                  "iconName": "images"
+                })
+              }}
+              <span>Foto (6)</span>
+            </span>
+          </li>
+          <li class="{{componentClassName}}__tab--item" data-tab="Sezione_Lotti">
+             <span class="d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": [""],
+                  "iconFamily": "icozaux1",
+                  "iconName": "metro-tags"
+                })
+              }}
+              <span>Lotti(4)</span>
+            </span>
+          </li>
+          <li class="{{componentClassName}}__tab--item" data-tab="Sezione_Planimetria">
+             <span class="d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": [""],
+                  "iconFamily": "icozaux1",
+                  "iconName": "metro-map"
+                })
+              }}
+              <span>Planimetria</span>
+            </span>
+          </li>
+          <li class="{{componentClassName}}__tab--item" data-tab="Sezione_Capitolato">
+            <span class="d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": [""],
+                  "iconFamily": "icozaux1",
+                  "iconName": "document"
+                })
+              }}
+              <span>Capitolato</span>
+            </span>
+          </li>
+          <li class="ms-4 d-none d-md-flex ">
+             <a href="#ChiudiModale" class="{{componentClassName}}__infobtn--brochure c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m" data-bs-dismiss="modal" aria-label="Close">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-sm"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "close"
+                  })
+                }}
+                <span class="c-btn__label ps-2">Chiudi</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="{{componentClassName}}__arrowtab d-block d-md-none text-center zaux-color-set1-yellow1">
+            <a class="arrow-left arrow">
+              {{
+                              Icon.content({
+                                "className": ["c-icon--size-2"],
+                                "iconFamily": "icozaux1",
+                                "iconName": "arrow-right"
+                              })
+                            }}
+            </a>
+            <span  class="c-typo-fs-3 fw-light px-2" style="vertical-align:text-bottom"> Scorri le tabs </span>
+            <a class="arrow-right arrow">
+              {{
+                              Icon.content({
+                                "className": ["c-icon--size-2"],
+                                "iconFamily": "icozaux1",
+                                "iconName": "arrow-right"
+                              })
+                            }}
+            </a>
+        </div>
+
+      <div class="{{componentClassName}}__content">
+        {{ ModSection1.content({
+          "txt": "Giungendo alla tua bifamiliare grande, a piedi o in auto, attraverserai il grande giardino privato che le fa da cornice su tre lati e sul quale si affaccia il soggiorno del piano terra, che a sua volta forma un ampio open space con cucina e sala da pranzo; quest’ultimo locale si apre su un’area pergolata esterna, scenario ideale per pranzi e cene all’aperto.
+Locale pluriuso e bagno finestrato completano il piano terra mentre, salite le scale, troverai il disimpegno con accesso a tre camere matrimoniali, di cui due dotate di balcone, e al bagno anch’esso finestrato.
+Avrai inoltre l’opportunità di personalizzare la tua abitazione secondo le tue esigenze con modifiche non strutturali, compatibilmente con l’avanzamento dei lavori."
+        })}}
+      {{ ModSection2.content() }}
+      {{ ModSection3.content()}}
+      {{ ModSection4.content() }}
+      {{ ModSection5.content() }}
+      </div>
+
+      <div class="{{componentClassName}}__footer text-center">
+        <div class="mb-4 mb-md-0">
+         <a href="#RichiediAppuntamento" class="c-btn c-btn--secondary-dark c-btn1 c-btn1--has-icon c-btn1--size-m" data-menu-value="Appuntamento" data-bs-dismiss="modal" aria-label="Close">
+            <span class="c-btn__inner d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": ["c-icon-size-sm"],
+                  "iconFamily": "icozaux1",
+                  "iconName": "arrow-right"
+                })
+              }}
+              <span class="c-btn__label ps-2">Richiedi Appuntamento</span>
+              </span>
+                  <!-- .c-btn__inner -->
+          </a>
+        </div>
+          <div class="d-block d-md-none">
+            <a href="#defaultLink" class="c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m" data-bs-dismiss="modal" aria-label="Close">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-sm"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "close"
+                  })
+                }}
+                <span class="c-btn__label ps-2">Chiudi</span>
+                </span>
+            </a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endmacro %}

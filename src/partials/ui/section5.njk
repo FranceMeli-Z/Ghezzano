@@ -1,0 +1,39 @@
+{% import 'components/textlogoblock/textlogoblock.njk' as TextLogo %}
+
+
+<div class="c-displayblock1 zaux-theme--light1">
+    <div class="c-displayblock1__inner container-l py-8 pt-md-12 pb-md-14">
+      <div class="c-displayblock1__row c-wrapper--w1 mb-7 mb-md-14">
+        {{ TextLogo.content({
+          "title": "Edifor",
+          "content": "L’impresa attualmente incaricata di sviluppare/portare avanti il progetto nel settore residenziale nel Comune di San Giuliano Terme (PI) è la Edifor S.r.l.
+          La società, costituita nel 2001 è impegnata prevalentemente nell’attività di edilizia residenziale. Titolare della carica di socio unico dal 2017 è la Forti Sviluppo
+          Immobiliare S.r.l., società controllante attiva nel campo della creazione, gestione e sviluppo di aree immobiliari ad alto potenziale di crescita. Grazie ad una struttura consolidata
+          in molteplici anni di attività, è in grado di coprire tutte le fasi che caratterizzano la realizzazione di immobili che vanno dal direzionale di alta qualità, all’artigianale fino al residenziale.",
+          "img" : {
+                        "mainSrc" : '../assets/img/Edifor_black.png',
+                        "sourceList" : '../assets/img/Edifor_black.png',
+                                "lazyload": true,
+                                "imgWidth": 116,
+                                "imgHeight": 200,
+                                "className": [""],
+                                "imgClassName": ["img-fluid"],
+                                "title": "title",
+                                "imgAlt": "alt"
+                      }
+        })}}
+      </div>
+
+      <div class="c-displayblock1__row c-wrapper--w1 ">
+        <div class="c-formblock c-wrapper--w2" id="Appuntamento">
+          <h3 class="c-formblock__title text-center font-zaux2 fw-semi c-typo-fs-12 c-typo-fs-md-15 mb-5">Richiedi un appuntamento</h3>
+          <div class="c-formblock__subtitle c-typo-style1-6 text-center fw-light maw-f526 m-auto mb-8">
+            <p>Puoi richiedere una visita compilando il breve modulo sottostante, saremo lieti di ricontattarti al più presto per fissare un appuntamento.</p>
+          </div>
+          <div class="c-formblock__form border-bottom-yellow">
+            {% include "partials/ui/form_block.njk" %}
+        </div>
+      </div>
+
+    </div>
+  </div>

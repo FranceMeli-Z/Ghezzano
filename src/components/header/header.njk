@@ -1,0 +1,104 @@
+{# Imports components #}
+{% import 'components/header/partials/header-search.njk' as searchForm %}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/menu/menu.njk' as Menu %}
+{% import 'components/img/img.njk' as Img %}
+
+{% macro content(obj) %}
+
+  {% set componentClassName = 'c-header' %}
+
+  {% set configDefault = {
+    "className": [""],
+    "isHome": false
+  }%}
+
+  {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+  {# Creates new arrays for manipulation) #}
+  {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+  <header class="{{_className | join(" ") | trim }}" data-js-component="Header">
+
+    <div class="{{componentClassName}}__inner container-l">
+      <div class="{{componentClassName}}__content c-wrapper--w1 d-flex justify-content-between align-items-end position-relative h-100 zaux-theme--light1">
+        <div class="{{componentClassName}}__nav">
+          <nav>
+            <ul class="">
+              <li class="{{componentClassName}}__nav--item"><a href="#Info" data-menu-value="Info">Info</a></li>
+              <li class="{{componentClassName}}__nav--item"><a href="#Tipologie" data-menu-value="Tipologie">Tipologie</a></li>
+              <li class="{{componentClassName}}__nav--item"><a href="#Appuntamento" data-menu-value="Appuntamento">Richiedi un appuntamento</a></li>
+            </ul>
+          </nav>
+          <div class="{{componentClassName}}__hamburger">
+            <button aria-label="Apri/chiudi menu" class="c-header__hamburger--btn c-menu__btn--open" type="button">
+              <span class="c-header__hamburger--inner">
+                <span class="c-header__hamburger--line c-header__hamburger--line--1"></span>
+                <span class="c-header__hamburger--line c-header__hamburger--line--2"></span>
+                <span class="c-header__hamburger--line c-header__hamburger--line--3"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {% if page.isHome %}
+          {% set tagLogo = "h1" %}
+        {% else %}
+          {% set tagLogo = "div" %}
+        {% endif %}
+
+        <{{tagLogo}} class="{{componentClassName}}__logo">
+          <a href="home.html" title="{{app.title}}" rel="home">
+            <span class="visually-hidden">
+              {{app.title}}
+            </span>
+            <picture class="{{componentClassName}}__logo--big c-img">
+              <img src="{{component_header.props.logoUrl}}" width="242" height="120" title="{{app.title}}" alt="Logo Ghezzano Full">
+            </picture>
+            <picture class="{{componentClassName}}__logo--little c-img">
+              <img src="{{component_header.props.logo2Url}}" width="242" height="14" title="{{app.title}}" alt="Logo Ghezzano">
+            </picture>
+          </a>
+        </{{tagLogo}}>
+        <!-- .{{componentClassName}}__logo -->
+
+        <div class="{{componentClassName}}__infobtn">
+          <a href="#defaultLink" class="{{componentClassName}}__infobtn--tel c-btn c-btn--primary-light c-btn1 c-btn1--has-icon c-btn1--size-m">
+              <span class="c-btn__inner d-flex align-items-center">
+                {{
+                  Icon.content({
+                    "className": ["c-icon-size-md"],
+                    "iconFamily": "icozaux1",
+                    "iconName": "phone2"
+                  })
+                }}
+                <span class="c-btn__label ps-2">(+39) 050 985232</span>
+              </span>
+                <!-- .c-btn__inner -->
+          </a>
+          <a href="#defaultLink" class="{{componentClassName}}__infobtn--brochure c-btn c-btn--primary-light c-btn1 c-btn1-res-nolabel c-btn1--has-icon c-btn1--size-m">
+            <span class="c-btn__inner d-flex align-items-center">
+              {{
+                Icon.content({
+                  "className": ["c-icon-size-md"],
+                  "iconFamily": "icozaux1",
+                  "iconName": "download"
+                })
+              }}
+              <span class="c-btn__label ps-2">Brochure</span>
+              </span>
+                  <!-- .c-btn__inner -->
+          </a>
+        </div>
+
+      </div>
+
+      <div class="{{componentClassName}}__offmenu">
+          {{ Menu.content() }}
+        </div>
+
+    </div>
+    <!-- .{{componentClassName}}__inner -->
+  </header>
+  <!-- .{{componentClassName}} -->
+{% endmacro %}

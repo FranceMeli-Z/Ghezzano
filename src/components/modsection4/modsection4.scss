@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+$component: componentClass("modsection4");
+
+.#{$component} {
+
+  &__img {
+    &--item {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  &__form {
+   & .c-form__select-modale {
+    padding: 0 16px 16px 16px;
+    display: inline-block;
+    & select {
+      font-size: 24px;
+      border: none;
+      padding-right: 24px;
+      font-family: $zaux-font2;
+      appearance: none;
+    }
+   }
+  }
+}

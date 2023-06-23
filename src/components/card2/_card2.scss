@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("card2");
+
+.#{$component} {
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__listing {
+    &--item {
+      min-height: 52px;
+      padding: 14px 0;
+    }
+  }
+
+&__footer {
+  display: flex;
+  justify-content: center;
+  & a {
+    border: none;
+  }
+}
+
+
+}

@@ -1,0 +1,47 @@
+{# Sets the layout to be extended #}
+{% extends "layouts/component.njk" %}
+
+{# Sets page-specific variables #}
+{% set page = {
+  "data": page_card1,
+  "title": "card1",
+  "isHome": false
+} %}
+
+{# Imports components #}
+{# import 'components/herovideo/herovideo.njk' as HeroVideo #}
+{% import 'components/card1/card1.njk' as Card1 %}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/img/img.njk' as Img %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="../assets/css/general.bundle.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="c-wrapper--w1 py-10">
+      <div class="">
+          <div class="row gx-3">
+           {% for i in range(2) %}
+           <div class="col-6">
+            {{
+              Card1.content({
+                "category": "Serie B Femminile",
+                "date": "16/12/22",
+                "title" : "Serie B femminile: Unicusano PL a punteggio pieno. Espugnata anche Lucca"
+              })
+            }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+  </div>
+
+{% endblock %}
+
+{% block foot_js %}
+  <script defer src="../assets/js/general.bundle.js"></script>
+{% endblock %}

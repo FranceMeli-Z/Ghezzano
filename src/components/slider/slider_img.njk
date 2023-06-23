@@ -1,0 +1,92 @@
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/card2/card2.njk' as Card2 %}
+
+{% macro content(obj) %}
+
+<div class="c-slider h-100 c-slider--var2 position-relative"  data-config='{{component_slider.sliderFoto.config | dump | safe}}' data-js-component="Slider">
+  <div class="c-slider__wrapper h-100">
+    <div class="c-slider__instance swiper swiper-container h-100">
+
+      <div class="swiper-wrapper">
+          {%
+                  set _decoVariations = [
+                    "deco1-l-t",
+                    "deco1-l-t",
+                    "deco1-l-t",
+                    "deco1-l-t"
+                  ]
+                %}
+
+        {% for decoVariation in _decoVariations %}
+
+          <div class="swiper-slide">
+
+             {{
+                Img.content({
+                  "mainSrc" : '../../media/ImmgineTest.png',
+                  "sourceList" : '../../media/ImmgineTest.png',
+                          "lazyload": true,
+                          "imgWidth": 500,
+                          "imgHeight": 500,
+                          "className": ["h-100"],
+                          "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100"],
+                          "title": "title",
+                          "imgAlt": "alt"
+                        })
+              }}
+
+          </div>
+                  <!-- .col-* -->
+          {% endfor %}
+           <div class="swiper-slide">
+
+             {{
+                Img.content({
+                  "mainSrc" : '../../media/Doctor.png',
+                  "sourceList" : '../../media/Doctor.png',
+                          "lazyload": true,
+                          "imgWidth": 500,
+                          "imgHeight": 500,
+                          "className": ["h-100"],
+                          "imgClassName": ["img-fluid","zaux-fit-of-cover-50-50","h-100","w-100"],
+                          "title": "title",
+                          "imgAlt": "alt"
+                        })
+              }}
+
+          </div>
+
+      </div>
+    </div>
+    <!-- .c-slider__instance -->
+  </div>
+  <!-- .c-slider__wrapper -->
+  <div class="c-slider__navigation swiper-navigation">
+        <div class="modimg-swiper-button-prev">
+           {{
+                              Icon.content({
+                                "className": ["zaux-color-set1-orange1"],
+                                "iconFamily": "icozaux1",
+                                "iconName": "arrow-right"
+                              })
+                            }}
+        </div>
+        <div class="modimg-swiper-button-next">
+          {{
+                              Icon.content({
+                                "className": ["zaux-color-set1-orange1"],
+                                "iconFamily": "icozaux1",
+                                "iconName": "arrow-right"
+                              })
+                            }}
+        </div>
+  </div>
+  <div class="c-typo-fs-6 text-center pt-3">
+    <span class="fw-light d-block fst-italic mb-3">Nome foto</span>
+    <span class="fw-semi d-block">1/6</span>
+  </div>
+</div>
+
+{% endmacro %}
+

@@ -1,0 +1,23 @@
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% macro content(obj) %}
+  {% set componentClassName = 'c-pagination' %}
+
+  <div class="{{componentClassName}} c-wppagenavi {{componentClassName}}--light">
+    <div class="navigation">
+      <div class="align-center">
+        <div class="wp-pagenavi" role="navigation">
+          <a class="previouspostslink" rel="prev" aria-label="Page prev" href="#prev"></a>
+          <a class="page smaller" title="Page 1" href="#archive"> 1 </a>
+          <span aria-current="page" class="current"> 2 </span>
+          <a class="page larger" title="Page 3" href="#archivePage3"> 3 </a>
+          {# <span class="extend">[ ... ]</span> #}
+          <a class="nextpostslink" rel="next" aria-label="Page next" href="#next"></a>
+        </div>
+
+      </div>
+    </div>
+    <!-- .navigation -->
+  </div>
+  <!-- .c-wppagenavi -->
+{% endmacro %}

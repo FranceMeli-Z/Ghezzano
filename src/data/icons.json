@@ -1,0 +1,25 @@
+{
+  "icozaux1": {
+    "url": "/assets/icon/icozaux/symbol-defs.svg",
+    "glyphs": [
+      "arrow-top-right",
+      "checkbox-checked",
+      "checkbox-unchecked",
+      "download",
+      "facebook",
+      "instagram",
+      "language",
+      "linkedin",
+      "login",
+      "menu-open",
+      "menu-close",
+      "mail",
+      "pag-bottom-right",
+      "share",
+      "search",
+      "telegram",
+      "twitter",
+      "whatsapp"
+    ]
+  }
+}

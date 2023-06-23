@@ -1,0 +1,722 @@
+/*!
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+////////////////////////////////////////////////////
+// Configuration
+////////////////////////////////////////////////////
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+////////////////////////////////////////////////////
+// Utilities customization
+// @see https://getbootstrap.com/docs/5.0/utilities/sizing/
+// @see https://getbootstrap.com/docs/5.0/utilities/api/#using-the-api
+// @see https://github.com/twbs/bootstrap/blob/v5.1.3/scss/_utilities.scss
+////////////////////////////////////////////////////
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-weight": (
+      property: font-weight,
+      class: fw,
+      values: (
+        normal: $zaux-typo-fw-regular,
+        bold: $zaux-typo-fw-bold,
+        "regular": $zaux-typo-fw-regular,
+        "semi": $zaux-typo-fw-semibold,
+        light : $zaux-typo-fw-light,
+        "extralight": $zaux-typo-fw-extralight,
+        "extrabold": $zaux-typo-fw-extrabold,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-family": (
+      property: font-family,
+      class: font,
+      values: (
+        monospace: var(--#{$variable-prefix}font-monospace),
+        zaux1: $zaux-font1,
+        zaux2: $zaux-font2
+      ),
+    ),
+  )
+);
+
+.lh-xs-1 {
+  @include media-breakpoint-down(sm) {
+    line-height: 1 !important;
+  }
+}
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "line-height": (
+      property: line-height,
+      class: lh,
+      values: (
+        0: 0,
+        1: 1
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "align": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border-top": (
+    responsive: true,
+  property: border-top,
+  values: (
+    "yellow": 1px solid tokenColor("set1", "yellow1"),
+  )
+  )
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border-bottom": (
+    responsive: true,
+  property: border-bottom,
+  values: (
+    "yellow": 1px solid tokenColor("set1", "yellow1"),
+    "lightblue": 1px solid tokenColor("set1", "lightblue"),
+
+  )
+  )
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border-end": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border-start": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border-color": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "border-width": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "height": (
+      responsive: true,
+      property: height,
+      class: h,
+      values: (
+        0: 0,
+        // hero projects mobile
+        f180: 180px,
+        // cards
+        f300: 300px,
+        // hero projects desktop
+        f362: 362px,
+        // cards desktop
+        f600: 600px,
+        100: 100%,
+        auto: auto,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "min-height": (
+      responsive: true,
+      property: min-height,
+      class: mih,
+      values: (
+        f180: 180px,
+        // hero projects desktop
+        f270: 270px,
+        f362: 362px,
+        auto: auto,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "min-width": (
+      responsive: true,
+      property: min-width,
+      class: miw,
+      values: (
+        f480: 480px
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "ls": (
+      responsive: true,
+      property: letter-spacing,
+      class: ls,
+      values: (
+        4: 0.8em,
+        "24": tokenLetterSpacing(24),
+        "-24": -0.024em,
+        "-50": -0.050em,
+        "-8": tokenLetterSpacing(-8),
+        "0": tokenLetterSpacing(0),
+        "8": tokenLetterSpacing(8),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded": (
+      responsive: false,
+      property: border-radius,
+      class: rounded,
+      values: (
+        0: 0,
+        2: 2px,
+        4: 4px,
+        circle: 50%,
+        full : 100%
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "opacity": (
+      property: opacity,
+      values: (
+        0: 0,
+        25: 0.25,
+        50: 0.5,
+        75: 0.75,
+        100: 1,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded-top": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded-end": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded-bottom": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded-start": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "translate-middle": null,
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "position": (
+      responsive: true,
+      property: position,
+      values: sticky static relative absolute fixed,
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "viewport-width": (
+      responsive: true,
+      property: width,
+      class: vw,
+      values: (
+        10: 10vw,
+        100: 100vw,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "viewport-height": (
+      responsive: true,
+      property: height,
+      class: vh,
+      values: (
+        10: 10vh,
+        50: 50vh,
+        //"100-nHeaderMobile": calc(100vh - #{$zaux-header-h}),
+        //"100-nHeaderDesktop": calc(100vh - #{$zaux-header-md-h}),
+        100: 100vh,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "shadow": (
+      responsive: false,
+      property: box-shadow,
+      class: shadow,
+      values: (
+        1: 0px 12px 30px rgba(0, 0, 0, 0.3),
+        none: none,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "translate": (
+      responsive: false,
+      property: transform,
+      class: tt,
+      values: (
+        "50-50": translate(50%, 50%),
+        "n50-n50": translate(-50%, -50%),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "translatex": (
+      responsive: true,
+      property: transform,
+      class: ttx,
+      values: (
+        10: translateX(10%),
+        50: translateX(50%),
+        n10: translateX(-10%),
+        n25: translateX(-25%),
+        n50: translateX(-50%),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "translatey": (
+      responsive: true,
+      property: transform,
+      class: tty,
+      values: (
+        n25: translateY(-25%),
+        n50: translateY(-50%),
+        n75: translateY(-75%),
+        n100: translateY(-100%),
+        5: translateY(5%),
+        25: translateY(25%),
+        50: translateY(50%),
+        100: translateY(100%),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "translatez": (
+      responsive: false,
+      property: transform,
+      class: ttz,
+      values: (
+        0: translateZ(0),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "scale": (
+      responsive: false,
+      property: transform,
+      class: ts,
+      values: (
+        xn1: scaleX(-1),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "end": (
+      responsive: true,
+      property: right,
+      class: end,
+      values: $position-values,
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "width": (
+      responsive: true,
+      property: width,
+      class: w,
+      values: (
+        vw40: 40vw,
+        100: 100%,
+        auto: auto,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "max-width": (
+      responsive: true,
+      property: max-width,
+      class: mw,
+      values: (
+        f440: 440px,
+        25: 25%,
+        50: 50%,
+        65: 65%,
+        100: 100%,
+        auto: auto,
+        none: none,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "max-height": (
+      responsive: true,
+      property: max-height,
+      class: mh,
+      values: (
+        f60: 60px,
+        f80: 80px,
+        100: 100%,
+        none: none,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "transition": (
+      responsive: false,
+      property: transition,
+      class: transi,
+      values: (
+        all-0: all $zaux-transition-0,
+        all-1: all $zaux-transition-1,
+        all-2: all $zaux-transition-2,
+        none: none,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "white-space": (
+      responsive: true,
+      property: white-space,
+      class: text,
+      values: (
+        wrap: normal,
+        nowrap: nowrap,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "z-index": (
+      responsive: false,
+      property: z-index,
+      class: zi,
+      values: (
+        overlay: tokenZindex(overlay),
+        content: tokenZindex(content),
+      ),
+    ),
+  )
+);
+
+////////////////////////////////////////////////////
+// Layout & components
+////////////////////////////////////////////////////
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+
+// Import customized
+// @import "bootstrap/scss/type";
+
+////////////////////////////////////////////////////
+// BEGIN part of "bootstrap/scss/type"
+////////////////////////////////////////////////////
+
+//
+// Emphasis
+//
+.small {
+  @extend small;
+}
+
+.mark {
+  @extend mark;
+}
+
+//
+// Lists
+//
+.list-unstyled {
+  @include list-unstyled();
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled();
+}
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: $list-inline-padding;
+  }
+}
+
+//
+// Misc
+//
+
+// Builds on `abbr`
+.initialism {
+  @include font-size($initialism-font-size);
+  text-transform: uppercase;
+}
+
+// Blockquotes
+.blockquote {
+  margin-bottom: $blockquote-margin-y;
+  @include font-size($blockquote-font-size);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.blockquote-footer {
+  margin-top: -$blockquote-margin-y;
+  margin-bottom: $blockquote-margin-y;
+  @include font-size($blockquote-footer-font-size);
+  color: $blockquote-footer-color;
+
+  &::before {
+    content: "\2014\00A0"; // em dash, nbsp
+  }
+}
+////////////////////////////////////////////////////
+// END part of "bootstrap/scss/type"
+////////////////////////////////////////////////////
+
+// Import customized
+// @import "bootstrap/scss/images";
+@include generateResponsive(#{"."}img, fluid) {
+  @include img-fluid();
+}
+
+// Import customized
+// @import "bootstrap/scss/containers";
+@if $enable-grid-classes {
+  // .container,
+  // [class*="container-"] {
+  //   @include make-container();
+  // }
+
+  // @each $key, $value in tokenSize("container-max-widths") {
+  //   .container-#{$key} {
+  //     max-width: $value;
+  //   }
+  // }
+}
+
+[class*="container-"] {
+  transition: margin-right $zaux-transition-1, margin-left $zaux-transition-1;
+}
+
+[class*="pb-md-"],
+[class*="mb-md-"] {
+  transition: padding-bottom $zaux-transition-1,
+    margin-bottom $zaux-transition-1;
+}
+
+@import "bootstrap/scss/grid";
+//@import "bootstrap/scss/forms/labels";
+//@import "bootstrap/scss/forms/form-text";
+//@import "bootstrap/scss/forms/form-control";
+//@import "bootstrap/scss/forms/form-select";
+//@import "bootstrap/scss/forms/form-check";
+//@import "bootstrap/scss/forms/form-range";
+// @import "bootstrap/scss/forms/floating-labels";
+//@import "bootstrap/scss/forms/input-group";
+// @import "bootstrap/scss/forms/validation";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/accordion";
+@import "bootstrap/scss/modal";
+// @import "bootstrap/scss/tables";
+// @import "bootstrap/scss/buttons";
+// @import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar";
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/list-group";
+// @import "bootstrap/scss/toasts";
+// @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+// @import "bootstrap/scss/offcanvas";
+// @import "bootstrap/scss/placeholders";
+
+////////////////////////////////////////////////////
+// Helpers
+////////////////////////////////////////////////////
+@import "bootstrap/scss/helpers/clearfix";
+@import "bootstrap/scss/helpers/position";
+@import "bootstrap/scss/helpers/visually-hidden";
+@import "bootstrap/scss/helpers/stretched-link";
+@import "bootstrap/scss/helpers/text-truncation";
+@import "bootstrap/scss/helpers/vr";
+// @import "bootstrap/scss/helpers/colored-links";
+// @import "bootstrap/scss/helpers/ratio";
+// @import "bootstrap/scss/helpers/stacks";
+
+////////////////////////////////////////////////////
+// Utilities
+////////////////////////////////////////////////////
+@import "bootstrap/scss/utilities/api";
+
+////////////////////////////////////////////////////
+// These below are bootstrap's inner bundles, the inclusion of the single
+// SCSS files (inside the bundles) are listed above in this file.
+////////////////////////////////////////////////////
+// @import "bootstrap/scss/forms";
+// @import "bootstrap/scss/helpers";
+
+////////////////////////////////////////////////////
+// These below are bootstrap's inner bundles, the inclusion of the single
+// SCSS files (inside the bundles) are listed above in this file.
+////////////////////////////////////////////////////
+
+@include onIE() {
+  .visually-hidden {
+    display: none;
+  }
+}

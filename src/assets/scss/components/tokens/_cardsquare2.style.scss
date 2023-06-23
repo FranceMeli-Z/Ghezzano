@@ -1,0 +1,10 @@
+$zaux-cardsquare2-style-tokens:(
+  layout: (
+    spacer-inner-pxy: tokenSpacer(7)
+  ),
+  theme--light: (
+    color-cmp-bg: tokenColor( default, white),
+    color-cmp-title: tokenColor( set1, darkgrey),
+    color-cmp-text: tokenColor( set1, darkgrey)
+  )
+);

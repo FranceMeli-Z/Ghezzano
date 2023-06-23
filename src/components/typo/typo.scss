@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("typo");
+
+////////////////////////////////////////////////////
+// Generic font-size CSS utilities
+////////////////////////////////////////////////////
+
+@include c-typo-text-rules("fs");
+@include c-typo-text-rules-responsive("fs");
+
+////////////////////////////////////////////////////
+// Typography Block: Style1
+////////////////////////////////////////////////////
+
+$style-name: "style1";
+
+// Paragraphs
+@include c-typo-text-rules($style-name, 'p:not([class*="c-typo"])');
+@include c-typo-text-rules-responsive($style-name, 'p:not([class*="c-typo"])');
+
+// List items
+@include c-typo-text-rules($style-name, 'li:not([class*="c-typo"])');
+@include c-typo-text-rules-responsive($style-name, 'li:not([class*="c-typo"])');
+
+[class*="#{$component}-"] {
+  @at-root .#{$zaux-system-classname-loaded} & {
+    transition: font-size $zaux-transition-1, line-height $zaux-transition-1;
+  }
+}
+
+[class*="#{$component}-#{$style-name}-"] {
+  p,
+  li {
+    // font-weight: $zaux-typo-fw-regular;
+
+    @media (max-width: #{tokenBreakpoint(_high-xs)}) {
+      word-break: break-word;
+    }
+  }
+
+  strong {
+    font-weight: $zaux-typo-fw-bold;
+  }
+
+  ul,
+  ol {
+    padding-left: tokenSpacer(5);
+  }
+
+  p:not(:last-child),
+  li:not(:last-child),
+  ul:not(:last-child),
+  ol:not(:last-child) {
+    margin-bottom: tokenSpacer(5);
+  }
+
+  ul ul,
+  ol ol {
+    padding-top: tokenSpacer(5);
+  }
+
+  ul li {
+    list-style-type: none;
+    &:before {
+      content: "•";
+      float: left;
+      line-height: 1;
+
+      margin: -0.25em 0 0 -0.55em;
+      font-size: 2.7em;
+    }
+  }
+}
+
+////////////////////////////////////////////////////
+// Fixes
+////////////////////////////////////////////////////
+// @media (max-width: #{tokenBreakpoint(_mid-xs)}) {
+//   .c-typo-fs-18 {
+//     @include typoFix1();
+//   }
+
+//   .c-typo-style1-9 p:not([class*="c-typo"]) {
+//     @include typoFix2();
+//   }
+// }

@@ -1,0 +1,256 @@
+{# Sets the layout to be extended #}
+{% extends "layouts/component.njk" %}
+
+{# Sets page-specific variables #}
+{% set page = {
+    "data": page_component,
+    "title": "Form"
+} %}
+
+{% import 'components/icon/icon.njk' as Icon %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="../assets/css/general.bundle.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-m p-5">
+        <h3 class="zaux-color-set1-black1 mb-5">Form controls</h3>
+        <form class="c-form d-inline-block w-100">
+            <div class="row">
+                <div class="col-6">
+                    <div class="c-form__field-wrap">
+                        <input type="text" placeholder="Standard text input" class="c-form__field"/>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="c-form__field-wrap">
+                        <input type="text" placeholder="Input text" class="c-form__field"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="c-form__field-wrap">
+                        <select class="c-form__field">
+                            <option value="">Select</option>
+                            <option value="">Select</option>
+                            <option value="">Select</option>
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-12">
+                    <div class="c-form__field-wrap">
+                        <textarea placeholder="Textarea" class="c-form__field"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-12">
+                    <div class="c-form__field-wrap">
+                        <input type="file" placeholder="Select a file" class="c-form__field"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-12">
+                    <div class="c-form__field-wrap">
+                        <input type="radio" class="c-form__field"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-12">
+                    <div class="c-form__field-wrap">
+                        <input type="checkbox" class="c-form__field"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-12">
+                    <div class="c-form__field-wrap c-form__field-wrap--sidelabel">
+                        <label>
+                            <input type="checkbox" class="c-form__field"/>
+                            <span class="c-form__field-label">With label on the side</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-12">
+                    <div class="c-form__field-wrap c-form__field-wrap--sidelabel">
+                        <label>
+                            <input type="radio" class="c-form__field"/>
+                            <span class="c-form__field-label">With label on the side</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="c-form__field-wrap c-form__field-wrap--has-icon">
+                        <input placeholder="Input with icon" class="c-form__field w-100" type="text" name="s"/>
+                        {{Icon.content({
+                            "className": ["c-form__field-icon", "c-form__field-icon--r", "c-typo-fs-6"],
+                            "iconFamily": "icozaux1",
+                            "iconName": 'icon-search'
+                        })}}
+                    </div>
+                </div>
+            </div>
+          <input type="submit" class="c-btn c-btn1 c-btn--primary" value="iscriviti"></input>
+        </form>
+
+        <h3 class="zaux-color-set1-black1 pt-5 mb-5">Input sizes</h3>
+        <form class="c-form d-inline-block w-100">
+
+
+            <input placeholder="Default/Small size input" type="text" class="c-form__field w-100"/>
+            <br/>
+            <input placeholder="Medium size input" type="text" class="c-form__field c-form__field--size-m w-100"/>
+            <br/>
+            <input placeholder="Large size input" type="text" class="c-form__field c-form__field--size-l w-100"/>
+            <br/><br/>
+
+
+            <select placeholder="Default/Small size input" type="text" class="c-form__field w-100">
+                <option>Select default/small</option>
+                <option>Option 2</option>
+            </select>
+            <br/>
+            <select placeholder="Medium size input" type="text" class="c-form__field c-form__field--size-m w-100">
+                <option>Select default/small</option>
+                <option>Option 2</option>
+            </select>
+            <br/>
+            <select placeholder="Medium size input" type="text" class="c-form__field c-form__field--size-l w-100">
+                <option>Select Large</option>
+                <option>Option 2</option>
+            </select>
+            <br/><br/>
+
+            <div class="c-form__field-wrap c-form__field-wrap--has-icon">
+                <input placeholder="Input with icon" class="c-form__field w-100" type="text" name="s"/>
+                {{Icon.content({
+                    "className": ["c-form__field-icon", "c-form__field-icon--r"],
+                    "iconFamily": "icozaux1",
+                    "iconName": 'icon-search'
+                })}}
+            </div>
+            <div class="c-form__field-wrap c-form__field-wrap--has-icon">
+                <input placeholder="Input with icon medium" class="c-form__field c-form__field--size-m w-100" type="text" name="s"/>
+                {{Icon.content({
+                    "className": ["c-form__field-icon", "c-form__field-icon--r"],
+                    "iconFamily": "icozaux1",
+                    "iconName": 'icon-search'
+                })}}
+            </div>
+            <div class="c-form__field-wrap c-form__field-wrap--has-icon">
+                <input placeholder="Input with icon large" class="c-form__field c-form__field--size-l w-100" type="text" name="s"/>
+                {{Icon.content({
+                    "className": ["c-form__field-icon", "c-form__field-icon--r"],
+                    "iconFamily": "icozaux1",
+                    "iconName": 'icon-search'
+                })}}
+            </div>
+
+            <div class="c-form__field-wrap">
+                <input type="file" placeholder="Select a file" class="c-form__field"/>
+            </div>
+            <br/>
+            <div class="c-form__field-wrap">
+                <input type="file" placeholder="Select a file" class="c-form__field c-form__field--size-m"/>
+            </div>
+            <br/>
+            <div class="c-form__field-wrap">
+                <input type="file" placeholder="Select a file" class="c-form__field c-form__field--size-l"/>
+            </div>
+            <br/>
+
+            <br/>
+            <br/>
+            <input type="radio" class="c-form__field"/>
+            <br/>
+            <br/>
+            <input type="radio" class="c-form__field c-form__field--size-m"/>
+            <br/>
+            <br/>
+            <input type="radio" class="c-form__field c-form__field--size-l"/>
+            <br/>
+            <br/>
+            <input type="checkbox" class="c-form__field"/>
+            <br/>
+            <br/>
+            <input type="checkbox" class="c-form__field c-form__field--size-m"/>
+            <br/>
+            <br/>
+            <input type="checkbox" class="c-form__field c-form__field--size-l"/>
+            <br/>
+            <br/>
+
+            <div class="c-form__field-wrap c-form__field-wrap--sidelabel mb-2">
+                <label>
+                    <input type="checkbox" class="c-form__field"/>
+                    <span class="c-form__field-label">With label on the side</span>
+                </label>
+            </div>
+            <div class="c-form__field-wrap c-form__field-wrap--sidelabel mb-2">
+                <label>
+                    <input type="checkbox" class="c-form__field c-form__field--size-m"/>
+                    <span class="c-form__field-label">With label on the side</span>
+                </label>
+            </div>
+            <div class="c-form__field-wrap c-form__field-wrap--sidelabel">
+                <label>
+                    <input type="checkbox" class="c-form__field c-form__field--size-l"/>
+                    <span class="c-form__field-label">With label on the side</span>
+                </label>
+            </div>
+        </form>
+
+        <h3 class="zaux-color-set1-black1 py-5">Free structure</h3>
+        <div class="c-form">
+            <select class="w-100"><option>Select</option></select>
+            <br/>
+            <input class="w-100" type="text" placeholder="Input"/>
+            <br/>
+            <input class="w-100" type="file" placeholder="Input"/>
+            <br/>
+            <textarea class="w-100" placeholder="Textarea"></textarea>
+        </div>
+
+        <div class="zaux-bg-set1-blue1 p-8">
+          <h3 class="zaux-color-set1-black1 py-5">Form Newsletter</h3>
+            <form class="c-form">
+              <div class="c-form__field d-flex justify-content-between zaux-bg-set1-white1" style="max-width: 628px;">
+                <div class="">
+                  <input id="newsletterEmailAddress" type="email" class="form-control h-100" placeholder="Indirizzo email*">
+                </div>
+                <div class="">
+                  <input type="submit" class="c-cta1 c-cta1--sm c-cta1--gw" value="Iscriviti ora"></button>
+                </div>
+              </div>
+              <div class="">
+                <div class="form-check checkbox">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Acconsento al trattamento dei dati personali secondo la <a href="#"><strong>Privacy Policy*</strong></a>
+                  </label>
+                </div>
+              </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block foot_js %}
+    <script defer src="../assets/js/general.bundle.js"></script>
+{% endblock %}

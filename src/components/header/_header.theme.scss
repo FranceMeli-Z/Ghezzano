@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+@import "../../assets/scss/components/tokens/header.style";
+
+$component: componentClass("header");
+$cmp-tokens: ();
+
+@if (variable-exists(zaux-header-style-tokens)){
+    $cmp-tokens : $zaux-header-style-tokens;
+}
+
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+
+.#{$component}{
+  &__inner {
+    background-color: #EBF0EE;
+  }
+  &__content {
+    border-bottom: 1px solid tokenColor(set1, yellow1);
+  }
+
+}
+

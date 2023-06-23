@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+@import "../../assets/scss/components/tokens/heroslider.style";
+
+$component: componentClass("heroslider");
+$cmp-tokens: ();
+
+@if ($zaux-heroslider-style-tokens){
+    $cmp-tokens : $zaux-heroslider-style-tokens;
+}
+
+.#{$component} {
+
+    //min-height: getCmpToken($cmp-tokens, 'css-heroslider-minh', 747px, 'layout' );
+    &__slider-container{
+        padding-top: getCmpToken($cmp-tokens, 'spacer-slider-container-pt', tokenSpacer(8), 'layout' );
+        padding-bottom:getCmpToken($cmp-tokens, 'spacer-slider-container-pb', tokenSpacer(7), 'layout' );
+        .#{$component-prefix}slider__instance{
+            padding-bottom:getCmpToken($cmp-tokens, 'spacer-slider-pb', tokenSpacer(8), 'layout' );
+        }
+    }
+    &__slide{
+        min-height: getCmpToken($cmp-tokens, 'css-slide-height', 500px, 'layout');
+        padding: getCmpToken($cmp-tokens, 'spacer-slide-pxy', tokenSpacer(7), 'layout');
+        .#{$component}__slide{
+            &-pre-title{
+                letter-spacing: getCmpToken($cmp-tokens, 'ls-pretitle', tokenLetterSpacing(1), 'layout');
+                margin-bottom: getCmpToken($cmp-tokens, 'spacer-pretitle-mb', tokenSpacer(5), 'layout');
+            }
+            &-title{
+                margin-bottom: getCmpToken($cmp-tokens, 'spacer-title-mb', tokenSpacer(5), 'layout');
+                font-size: getCmpToken($cmp-tokens, 'fs-title', tokenTypoSizeFs(14), 'layout');
+                font-weight:getCmpToken($cmp-tokens, 'fw-title', $zaux-typo-fw-semibold, 'layout');
+            }
+            &-footer-list{
+                margin-left:-#{getCmpToken($cmp-tokens, 'spacer-footer-list-item-ml', tokenSpacer(2), 'layout')};
+                li{
+                    display:inline-block;
+                    margin-left:getCmpToken($cmp-tokens, 'spacer-footer-list-item-ml', tokenSpacer(2), 'layout');
+                    .#{$component}__badge{
+                        height:getCmpToken($cmp-tokens, 'css-badge-height', 82px, 'layout' );
+                        width:getCmpToken($cmp-tokens, 'css-badge-width', 82px, 'layout' );
+                        padding-left:getCmpToken($cmp-tokens, 'spacer-badge-pl', tokenSpacer(2), 'layout');
+                        padding-right:getCmpToken($cmp-tokens, 'spacer-badge-pr', tokenSpacer(2), 'layout');
+                        text-align:center;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        font-size: getCmpToken($cmp-tokens, 'fs-badge', tokenTypoSizeFs(14), 'layout');
+                    }
+                }
+            }
+        }
+        &-inner{
+            display:flex;
+            justify-content:space-between;
+            flex-direction: column;
+            min-height: inherit;
+            .#{$component}__bg{
+                position:absolute;
+                left:0;
+                top:0;
+                height:100%;
+                width:100%;
+                img{
+                    object-fit:cover;
+                    height:100%;
+                    width:100%;
+                }
+            }
+            .#{$component}__slide-row{
+                position:relative;
+                z-index:tokenZindex(content);
+            }
+        }
+    }
+
+    &.res--1{
+        .#{$component}{
+            &__slide{
+                @include media-breakpoint-down("md"){
+                    min-height: getCmpToken($cmp-tokens, 'css-slide-height', 400px, 'layout');
+                    padding: getCmpToken($cmp-tokens, 'spacer-slide-pxy', tokenSpacer(5), 'layout-res1-md');
+                }
+            }
+            &__slider-container{
+                @include media-breakpoint-down("md"){
+                    padding-top: getCmpToken($cmp-tokens, 'spacer-slider-container-pt', tokenSpacer(6), 'layout-res1-md');
+                    padding-bottom:getCmpToken($cmp-tokens, 'spacer-slider-container-pb', tokenSpacer(4), 'layout-res1-md');
+                }
+            }
+            &__slide-footer-list{
+                @include media-breakpoint-down("sm"){
+                    li{
+                        display:block;
+                        margin-bottom:getCmpToken($cmp-tokens, 'spacer-sliderfooterlist-mb', tokenSpacer(2), 'layout-res1-sm');
+                    }
+                }
+            }
+        }
+    }
+
+}

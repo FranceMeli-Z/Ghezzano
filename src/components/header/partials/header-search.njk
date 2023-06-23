@@ -1,0 +1,15 @@
+
+{% import 'components/icon/icon.njk' as Icon %}
+{% macro content(obj) %}
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+    <form class="c-form w-100" method="GET" action="">
+        <div class="c-form__field-wrap c-form__field-wrap--has-icon">
+            <input placeholder="{{obj.searchPH}}" class="c-form__field c-form__field--type1 c-form__field--small w-100" type="text" name="s"/>
+            {{Icon.content({
+                "className": ["c-form__field-icon c-form__field-icon--sm c-form__field-icon--r", "c-typo-fs-6"],
+                "iconFamily": "icozaux1",
+                "iconName": 'icon-search'
+            })}}
+        </div>
+    </form>
+{% endmacro %}

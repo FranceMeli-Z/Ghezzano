@@ -1,0 +1,82 @@
+{# Imports components #}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/btn/btn.njk' as Button %}
+{% import 'components/img/img.njk' as Img %}
+
+{% macro content(obj) %}
+
+    {% set componentClassName = 'c-heroslider' %}
+
+    {% set configDefault = {
+    "className": ["res--1"],
+    "isHome": false
+    }%}
+
+    {% set obj = configDefault | overwriteMerge(obj or {}) %}
+
+    {# Creates new arrays for manipulation) #}
+    {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
+
+    <div class="{{_className | join(" ") | trim }}">
+        <div class="{{componentClassName}}__inner container-l container--min-w1 container--res1">
+            <div class="{{componentClassName}}__slider-container">
+                <div data-js-component="Slider" class="{{componentClassName}}__slider c-slider swiper-container" 
+                    data-config='{
+                        "centeredSlides":false,
+                        "speed":600,
+                        "spaceBetween":0,
+                        "slidesPerView":1,
+                        "pagination":{
+                            "el":".swiper-pagination",
+                            "type":"bullets",
+                            "clickable":true
+                        }
+                    }'>
+                    <div class="c-slider__wrapper">
+                        <div class="c-slider__instance swiper-container">
+                            <div class="swiper-wrapper">
+                                {% for element in component_heroslider.slides %}
+                                    <div class="{{componentClassName}}__slide swiper-slide">
+                                        <div class="{{componentClassName}}__slide-inner">
+                                            {{
+                                                Img.content({
+                                                    "className" : [componentClassName + "__bg"],
+                                                    "mainSrc" : element.img.mainUrl or '',
+                                                    "sourceList" : element.img.sourceList or ''
+                                                })
+                                             }}
+                                            <div class="{{componentClassName}}__slide-row {{componentClassName}}__slide-row--1">
+                                                <p class="{{componentClassName}}__slide-pre-title">{{element.eyelet}}</p>
+                                                <h3 class="{{componentClassName}}__slide-title">{{element.title}}</h3>
+                                                <p class="{{componentClassName}}__slide-subtitle">{{element.subtitle}}</p>
+                                            </div>
+                                            <div class="{{componentClassName}}__slide-row {{componentClassName}}__slide-row--2">
+                                                <ul class="{{componentClassName}}__slide-footer-list">
+                                                    {% if element.discountPercentage %}
+                                                    <li><div class="{{componentClassName}}__badge"><span>{{element.discountPercentage}}</span></div></li>
+                                                    {% endif %}
+                                                    <li>
+                                                        {{
+                                                            Button.content({
+                                                                "className" : ["c-btn--secondary"],
+                                                                "hasIcon" : false,
+                                                                "icon" : "icon-arrow1-right",
+                                                                "label" : "Button label"
+                                                            })
+                                                        }}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="{{componentClassName}}__pagination c-slider__pagination swiper-pagination"></div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endmacro %}

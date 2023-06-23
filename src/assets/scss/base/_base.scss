@@ -1,0 +1,68 @@
+@if hasCompatibilityLayer() {
+  // Fix SVG in <img> tags not scaling in IE9, IE10, IE11
+  // IE9, IE10, and IE11 don't properly scale SVG files added with img tags when viewBox, width
+  // and height attributes are specified. To get more consistent scaling across browsers always ensure
+  // you specify a viewBox but leave off the width and height attributes on your svg element.
+  // @see https://gist.github.com/larrybotha/7881691
+  // @see https://stackoverflow.com/questions/9777143/svg-in-img-element-proportions-not-respected-in-ie9/9792254#9792254
+  @include onIE() {
+    img[src$=".svg"] {
+      width: 100%;
+    }
+  }
+}
+
+[type="search"]::-webkit-search-cancel-button {
+  @include appearance(none);
+}
+
+:root {
+  @include scrollbars(4px, tokenColor('set1', flare),  transparent, 0px);
+  // @include scrollbars(7px, rgba(tokenColor('set1', 'black1'), 0.25),  white, 7px);
+  // @include scrollbars(7px, rgba(tokenColor('set1', 'black1'), 0.25),  tokenColor(set1, lightgrey), 7px);
+}
+
+body {
+    // Improving Font Rendering With CSS
+  // @see https://betterprogramming.pub/improving-font-rendering-with-css-3383fc358cbc
+  @include text-antialiased;
+
+  // Custom scrollbars
+  // @include scrollbars(
+  //   6px,
+  //   rgba(tokenColor(set1, darkgreen), 0.75),
+  //   transparent,
+  //   6px
+  // );
+  overflow: overlay;
+  background-color: #EBF0EE
+}
+
+#zaux-content-outer {
+  // max-width: 2560px;
+  // margin: auto;
+  overflow: hidden;
+}
+
+main {
+  transition: filter $zaux-transition-1;
+  min-height: calc( 100vh - 168px); // 120+62
+  & p img {
+    max-width: 100%;
+    height: auto;
+  }
+  @include media-breakpoint-down(md) {
+    min-height: calc( 100vh - 118px); //48 + 48 + 72
+  }
+}
+
+.zaux-block-scroll {
+  overflow: hidden !important;
+}
+
+a{
+  text-decoration:none;
+  &:hover{
+    text-decoration:none;
+  }
+}

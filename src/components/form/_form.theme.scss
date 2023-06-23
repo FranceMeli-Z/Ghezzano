@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+@import "../../assets/scss/components/base";
+
+$component: componentClass("form");
+
+$form-select-arrow : url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#1C1F1E' class='bi bi-caret-down-fill' viewBox='0 0 16 16'> <path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+$form-radio: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='#269A91'/%3e%3c/svg%3e");
+////////////////////////////////////////////////////
+// Theme: Light1
+////////////////////////////////////////////////////
+
+@mixin form-field-theme-light1{
+    border-style:none;
+    appearance: none;
+
+    &:not([type=submit]){
+        background-color:transparent;
+    }
+
+    //// FIELD TYPES ////
+
+    //Default and type 1
+    &:is(input, select, textarea):not([type=submit]), &--type1, &--type1 input, &--type1 select, &--type1 textarea {
+
+        ///// GENERIC INPUT /////
+        transition: background-color $zaux-transition-0, border-color $zaux-transition-0, box-shadow $zaux-transition-0, color 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        appearance: none;
+        outline:none;
+        color: getCmpToken($cmp-tokens, 'color-inputtext', tokenColor(set1, darkbrown), 'theme-light1');
+        border-bottom: 1px solid tokenColor(set1, yellow1);
+        background-color: white;
+
+        &:is(div){
+            border-bottom:none;
+        }
+
+        &:focus{
+          border-color: getCmpToken($cmp-tokens, 'color-radioborder_focus', tokenColor('set1', 'darkblue'), 'theme-light1' );
+        }
+        &::placeholder{
+            color: #8D9994;
+        }
+        &:after{
+            transition: opacity $zaux-transition-0;
+        }
+
+        ///// SELECT /////
+
+        &:is(select){
+          background-image: escape-svg($form-select-arrow);
+          background-position: right 24px top 20px;
+          background-color: white;
+          background-repeat: no-repeat;
+          background-size: 16px;
+        }
+
+        ///// RADIOS /////
+
+        &:is(input[type=radio]){
+            border-style:solid;
+            border-radius:tokenRadius("full");
+            border-color: #253B35;
+            &:after{
+                background-color: tokenColor(set1,yellow1);
+                border-radius:tokenRadius("full");
+            }
+            &:focus{
+                border-color: #253B35
+            }
+            &:checked{
+                border-color: #253B35
+            }
+        }
+
+        ///// CHECKBOXES /////
+
+        &:is(input[type=checkbox]){
+            border-style:solid;
+            border-color: #253B35;
+            border-radius:tokenRadius(0);
+            &:focus{
+                // border-color: getCmpToken($cmp-tokens, 'color-radioborder_focus', tokenColor('set1', ''), 'theme-light1' );
+                // box-shadow: 0px 0px 0px 3px rgba(getCmpToken($cmp-tokens, 'color-radioborder_focus', tokenColor('set1', 'white1'), 'theme-light1' ), 0.2);
+            }
+            &:checked{
+                background-color: tokenColor(set1,yellow1);
+                $checkbox-checkmark-color: getCmpToken($cmp-tokens, 'color-checkmark', tokenColor('set1','white1'), 'theme-light1' );
+                $checkbox-checkmark-color: str-replace(#{$checkbox-checkmark-color}, "#", "%23");
+                background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='#{$checkbox-checkmark-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+            }
+        }
+
+        &:is(input[type=file])::file-selector-button{
+            appearance:none;
+            font-size:inherit;
+            @extend .c-btn, .c-btn--primary-light;
+        }
+
+    }
+
+    //Type 2
+    &--type2, &--type2 input, &--type2 select, &--type2 textarea{
+        border-radius:tokenRadius("pill");
+        border:none;
+    }
+
+    //Type 3
+    &--type3, &--type3 input, &--type3 select, &--type3 textarea{
+        border:none !important;
+        &:not([type=submit]){
+            background-color:transparent;
+        }
+    }
+
+    /// LABELS ///
+
+    &-label{
+        color: tokenColor(set1,yellow1);
+    }
+
+    /// ICONS ///
+    ///
+    &-icon{
+        color:getCmpToken($cmp-tokens, 'color-fieldicondf', tokenColor("set1","black1"), 'theme-light1');
+    }
+
+    &:is(input[type=submit]){
+      transition: background-color $zaux-transition-0, color 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+      background-color: tokenColor(set1,darkblue);
+      color: tokenColor(set1,white);
+      &:hover {
+        transition: background-color $zaux-transition-0, color 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        background-color: tokenColor(set1,lightblue);
+        color: tokenColor(set1,darkblue);
+      }
+  }
+}
+
+
+.#{$component}{
+
+
+  &__field {
+    & input, select, textarea {
+      @include form-field-theme-light1;
+    }
+    &-label{
+      color: tokenColor(set1,darkbrown);
+  }
+}
+&__radio {
+  &-label {
+    color: tokenColor(set1,darkbrown);
+    font-weight: 300;
+  }
+}
+
+    &__field {
+        &--style1 {
+          & input {
+            border: 1px solid getCmpToken( $cmp-tokens, "color-fieldtype1-borderbottom", tokenColor(set1, darkblue), 'theme-light1');
+          }
+        }
+        &--style2{
+            border-radius:tokenRadius("pill");
+            background-color:getCmpToken($cmp-tokens, 'color-fieldcontstyle1-bg', tokenColor("set1","white1"), 'theme-light1');
+            border:getCmpToken($cmp-tokens, 'spacer-fieldwrapstyle2-borderwidth', tokenSpacer(1), 'theme-light1') solid getCmpToken($cmp-tokens, 'color-fieldwrapstyle2-border', tokenColor("set1",'white1'), 'theme-light1');
+            .#{$component}__field, input, select, textarea{
+                border-radius:tokenRadius("pill");
+            }
+        }
+    }
+
+}
+

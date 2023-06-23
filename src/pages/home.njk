@@ -1,0 +1,48 @@
+{# Sets the layout to be extended #}
+{% extends "layouts/default.njk" %}
+
+{# Sets page-specific variables #}
+{% set page = {
+  "data": page_home,
+  "title": "Home",
+  "isHome": true
+} %}
+
+{# Imports components #}
+{% import 'components/footer/footer.njk' as footer %}
+{% import 'components/icon/icon.njk' as Icon %}
+{% import 'components/img/img.njk' as Img %}
+{% import 'components/hero/hero.njk' as Hero %}
+{% import 'components/card1/card1.njk' as Card1 %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="assets/css/general.bundle.css">
+{% endblock %}
+
+{% block content %}
+
+<main>
+
+
+  {{ Hero.content({
+    'home': 'y'
+  }) }}
+
+  {% include "partials/ui/section1.njk" %}
+
+  {% include "partials/ui/section2.njk" %}
+
+  {% include "partials/ui/section3.njk" %}
+
+  {% include "partials/ui/section4.njk" %}
+
+  {% include "partials/ui/section5.njk" %}
+
+
+</main>
+
+{% endblock %}
+
+{% block foot_js %}
+  <script defer src="assets/js/general.bundle.js"></script>
+{% endblock %}
