@@ -91,7 +91,7 @@ $(`.c-menu__btn--close`).on('click', function(){
     });
 
 
-  var box = $(".c-modale__tab"), x;
+var box = $(".c-modale__tab"), x;
 $(".c-modale__arrowtab .arrow").click(function() {
   if ($(this).hasClass("arrow-right")) {
     x = ((box.width() / 2)) + box.scrollLeft();
@@ -104,8 +104,7 @@ $(".c-modale__arrowtab .arrow").click(function() {
       scrollLeft: -x,
     })
   }
-})
-
+});
 
 //ScrollTop ancore
 var viewportWidth = $(window).width();
@@ -138,10 +137,8 @@ $('a[data-menu-value]').click(function(){
 
 $("[data-planimetria-form]").each(function(e){
   var form_select = $(this).find("[name=planimetria]");
-  var activeId = "";
-
   form_select.change(function(){
-    activeId = $(this).find("option:selected").attr("data-option-id");
+  var activeId = $(this).find("option:selected").attr("data-option-id");
     $(`.c-modsection4__img--item`).each(function(e){
       var sliderattr = $(this).attr("data-planimetria-id");
       if ( sliderattr == activeId ) {
@@ -185,8 +182,6 @@ $("[data-lotto-id]").click(function(){
     });
   });
 });
-
-
 
 function ModalTabActive() {
   var activeTab = $(`.c-modale__tab--item.active`).attr("data-tab");

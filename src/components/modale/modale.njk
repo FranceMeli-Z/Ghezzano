@@ -131,12 +131,13 @@
             </a>
         </div>
 
-      <div class="{{componentClassName}}__content">
-        {{ ModSection1.content({
-          "txt": "Giungendo alla tua bifamiliare grande, a piedi o in auto, attraverserai il grande giardino privato che le fa da cornice su tre lati e sul quale si affaccia il soggiorno del piano terra, che a sua volta forma un ampio open space con cucina e sala da pranzo; quest’ultimo locale si apre su un’area pergolata esterna, scenario ideale per pranzi e cene all’aperto.
-Locale pluriuso e bagno finestrato completano il piano terra mentre, salite le scale, troverai il disimpegno con accesso a tre camere matrimoniali, di cui due dotate di balcone, e al bagno anch’esso finestrato.
-Avrai inoltre l’opportunità di personalizzare la tua abitazione secondo le tue esigenze con modifiche non strutturali, compatibilmente con l’avanzamento dei lavori."
-        })}}
+      <div class="{{componentClassName}}__content" data-content>
+        <div data-modal1></div>
+        <div data-modal2></div>
+        <div data-modal3></div>
+        <div data-modal4></div>
+        <div data-modal5></div>
+      {{ ModSection1.content()}}
       {{ ModSection2.content() }}
       {{ ModSection3.content()}}
       {{ ModSection4.content() }}
