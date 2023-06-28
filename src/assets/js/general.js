@@ -43,7 +43,6 @@ $(`.c-menu__btn--close`).on('click', function(){
 
   });
 
-
  // On Scroll
   $(window).scroll(function(){
     const currentScroll = $(window).scrollTop();
@@ -69,8 +68,8 @@ $(`.c-menu__btn--close`).on('click', function(){
     }
   });
 
-    //Attivo la prima tab della modale cme active
-    ModalTabActive();
+    //Attivo la prima tab della modale
+    // ModalTabActive();
     // Modifica il contenuto della modale al click sulla tab
     $(`.c-modale__tab--item`).click(function(){
       event.preventDefault();
@@ -159,7 +158,7 @@ $("[data-lotto-id]").click(function(){
   $(`.c-modale__tab--item.active`).removeClass('active');
   $(`.c-modale__tab--item[data-tab="Sezione_Planimetria"]`).addClass('active');
   ModalTabActive();
-
+  console-log("AAA");
   $(".c-modale.show [data-planimetria-form]").each(function(e){
     var form_select = $(this).find("[name=planimetria]");
     form_select.find("option").each(function(e) {
@@ -183,6 +182,21 @@ $("[data-lotto-id]").click(function(){
   });
 });
 
+$("a[data-modal-click").click(function() {
+  var id = $(this).attr("data-bs-target");
+  $.ajax({
+    type: 'GET',
+    dataType: 'html',
+    url: 'components/modal-content.html',
+    success: function(data){
+         $('.c-modale' + id + ' div[data-content]').html(data);
+         ModalTabActive();
+         init();
+         
+    }
+});
+});
+
 function ModalTabActive() {
   var activeTab = $(`.c-modale__tab--item.active`).attr("data-tab");
     $(`div[class*="c-modsection"]`).each(function(e){
@@ -195,19 +209,5 @@ function ModalTabActive() {
       }
     });
   }
-
-  $("a[data-modal-click").click(function() {
-    var id = $(this).attr("data-bs-target");
-    $.ajax({
-      type: 'GET',
-      dataType: 'html',
-      url: 'components/card1.html',
-      success: function(data){
-           console.log(data);
-           $('.c-modale' + id + ' div[data-content]').html(data);
-
-      }
-  });
-  });
 
 });
