@@ -18,7 +18,7 @@
     {% set _className = [componentClassName] | mergeArray(obj.className or configDefault.className) %}
 
     <article class="{{componentClassName}} zaux-theme--light1 h-100">
-      <a href="#" class="d-block h-100" data-bs-toggle="modal" data-bs-target="#ModaleTipologia{{obj.id}}">
+      <a href="#" class="d-block h-100" data-bs-toggle="modal" data-bs-target="#ModaleTipologia{{obj.id}}" data-modal-click>
         <div class="{{componentClassName}}__inner">
           <div class="{{componentClassName}}__img mb-4">
                 {{

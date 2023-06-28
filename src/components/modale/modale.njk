@@ -132,16 +132,7 @@
         </div>
 
       <div class="{{componentClassName}}__content" data-content>
-        <div data-modal1></div>
-        <div data-modal2></div>
-        <div data-modal3></div>
-        <div data-modal4></div>
-        <div data-modal5></div>
-      {{ ModSection1.content()}}
-      {{ ModSection2.content() }}
-      {{ ModSection3.content()}}
-      {{ ModSection4.content() }}
-      {{ ModSection5.content() }}
+          {% include "partials/ui/modal_block.njk" %}
       </div>
 
       <div class="{{componentClassName}}__footer text-center">

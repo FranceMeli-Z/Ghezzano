@@ -1,1 +1,23 @@
-{}
+{
+  "nome": "",
+  "id": "",
+  "data-content": [{
+    "dettagli": {
+    "img": "",
+    "text": "",
+    "repeater": ["list"]
+    }
+    },
+    {
+    "foto": ["list"]
+    },
+    {
+    "lotti": {
+      "cards": ["list_of_cards"]
+      }
+    },
+    {
+    "planimetria": ["list_of"]
+    }
+  ]
+}

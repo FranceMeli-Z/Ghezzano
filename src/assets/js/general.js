@@ -196,4 +196,18 @@ function ModalTabActive() {
     });
   }
 
+  $("a[data-modal-click").click(function() {
+    var id = $(this).attr("data-bs-target");
+    $.ajax({
+      type: 'GET',
+      dataType: 'html',
+      url: 'components/card1.html',
+      success: function(data){
+           console.log(data);
+           $('.c-modale' + id + ' div[data-content]').html(data);
+
+      }
+  });
+  });
+
 });
