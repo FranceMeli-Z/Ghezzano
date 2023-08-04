@@ -23,6 +23,7 @@ $component: componentClass("slider");
   }
   .swiper-pagination {
     display: none;
+    z-index: 1;
     @include media-breakpoint-down(md) {
       display:block;
       text-align: left;
@@ -109,6 +110,11 @@ $component: componentClass("slider");
         padding-left: 16px;
       }
     }
+    @include media-breakpoint-up(md){
+      & .#{$component}__instance .swiper-wrapper {
+        justify-content: center;
+      }
+    }
   }
 
   //Variazione 2
@@ -116,17 +122,27 @@ $component: componentClass("slider");
     width: 100%;
     height: 200px;
     overflow: visible;
-    @include media-breakpoint-up(md){
-      & .#{$component}__wrapper {
-        margin: 0 -128px;
-      }
-      & .#{$component}__instance {
-        padding: 0 128px;
-      }
-    }
+    // @include media-breakpoint-up(md){
+    //   & .#{$component}__wrapper {
+    //     margin: 0 -128px;
+    //   }
+    //   & .#{$component}__instance {
+    //     padding: 0 128px;
+    //   }
+    // }
     @include media-breakpoint-down(md){
       & .#{$component}__wrapper {
         margin: 0 -16px;
+      }
+      & .#{$component}__instance {
+        position: relative;
+        padding-top: 56.25%;
+        & .swiper-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
       }
     }
   .swiper-wrapper {

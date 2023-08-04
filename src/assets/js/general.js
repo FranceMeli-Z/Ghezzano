@@ -14,7 +14,7 @@ import { Menu } from "../../components/menu/menu";
 import { HeroVideo } from "../../components/herovideo/herovideo";
 
 //import { Header } from "../../components/header/header";
-import Swiper from "swiper";
+import Swiper, { EffectFade, Navigation, Pagination, Autoplay, FreeMode, Mousewheel, EffectCoverflow } from "swiper";
 
 // Registering components
 //Component.register("Header", Header);
@@ -25,7 +25,8 @@ Component.register("HeroVideo", HeroVideo);
 
 init();
 
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+  $(document).ready(function() {
 
 // Gestione Menu
 $(`.c-menu__btn--open`).on('click', function(){
@@ -74,10 +75,10 @@ $(`.c-menu__btn--close`).on('click', function(){
     $(`.c-modale__tab--item`).click(function(){
       event.preventDefault();
       if (!$(this).hasClass('active')){
-        $(`.c-modale__tab--item`).removeClass('active');
+        $(`.c-modale.show .c-modale__tab--item`).removeClass('active');
         $(this).addClass('active');
       }
-      var activeTab = $(`.c-modale__tab--item.active`).attr("data-tab");
+      var activeTab = $(`.c-modale.show .c-modale__tab--item.active`).attr("data-tab");
       $(`div[class*="c-modsection"]`).each(function(e){
         var sliderattr = $(this).attr("data-value");
         if ( sliderattr == activeTab ) {
@@ -134,80 +135,183 @@ $('a[data-menu-value]').click(function(){
 });
 
 
-$("[data-planimetria-form]").each(function(e){
-  var form_select = $(this).find("[name=planimetria]");
-  form_select.change(function(){
-  var activeId = $(this).find("option:selected").attr("data-option-id");
-    $(`.c-modsection4__img--item`).each(function(e){
-      var sliderattr = $(this).attr("data-planimetria-id");
-      if ( sliderattr == activeId ) {
-        $(this).addClass("active");
-      }
-      else {
-        $(this).removeClass("active");
-      }
-    });
-  });
-
-});
-
-$("[data-lotto-id]").click(function(){
-  event.preventDefault();
-  var lottoId = $(this).attr("data-lotto-id");
-
-  $(`.c-modale__tab--item.active`).removeClass('active');
-  $(`.c-modale__tab--item[data-tab="Sezione_Planimetria"]`).addClass('active');
-  ModalTabActive();
-  console-log("AAA");
-  $(".c-modale.show [data-planimetria-form]").each(function(e){
-    var form_select = $(this).find("[name=planimetria]");
-    form_select.find("option").each(function(e) {
-      var activeTab = $(this).attr("data-option-id");
-      if ( lottoId == activeTab ) {
-        $(this).prop("selected",true);
-        var activeId = activeTab;
-        $(`.c-modale.show .c-modsection4__img--item`).each(function(e){
-          var sliderattr = $(this).attr("data-planimetria-id");
-          console.log(sliderattr);
-          console.log(activeId);
-          if ( sliderattr == activeId ) {
-            $(this).addClass("active");
-          }
-          else {
-            $(this).removeClass("active");
-          }
-        });
-      }
-    });
-  });
-});
-
 $("a[data-modal-click").click(function() {
   var id = $(this).attr("data-bs-target");
+  var post = $(this).attr("data-id");
   $.ajax({
-    type: 'GET',
+    type: "GET",
     dataType: 'html',
+    async:true,
     url: 'components/modal-content.html',
+    // type: "POST",
+    // dataType: 'html',
+    // async:true,
+    // data: { postID : post },
+    // url: 'wp-content/themes/zaki/components/modal-content.php',
     success: function(data){
-         $('.c-modale' + id + ' div[data-content]').html(data);
-         ModalTabActive();
-         init();
-         
+        $('.c-modale' + id + ' div[data-content]').html(data);
+        $(`.c-modale.show .c-modale__tab--item`).each(function(i,el){
+          if ( i==0 ) {
+            $(this).addClass("active");
+          }
+        })
+        var activeTab = $(`.c-modale.show .c-modale__tab--item.active`).attr("data-tab");
+        $(`.c-modale.show div[class*="c-modsection"]`).each(function(e){
+          var sliderattr = $(this).attr("data-value");
+          if ( sliderattr == activeTab ) {
+            $(this).addClass("open");
+          }
+          else {
+            $(this).removeClass("open");
+          }
+        });
+         Swiper.use([EffectFade, Navigation, Pagination, Autoplay, FreeMode, Mousewheel, EffectCoverflow]);
+
+         const swiper1 = new Swiper('.swiper1', {
+          speed: 600,
+          spaceBetween: 16,
+          slidesPerView: 1,
+          allowTouchMove: true,
+          loop: true,
+          effect: "coverflow",
+          navigation: {
+            nextEl: ".modimg-swiper-button-next",
+            prevEl: ".modimg-swiper-button-prev"
+          },
+          breakpoints: {
+            992: {
+              centeredSlides: true,
+              loop: true,
+              spaceBetween: 16,
+              effect: "coverflow",
+              grabCursor: true,
+              slidesPerView: "auto",
+              coverflowEffect: {
+                  rotate: 0,
+                  stretch: 180,
+                  depth: 200,
+                  modifier: 1,
+                  slideShadows: false,
+                  spaceBetween: 0
+              }
+            }
+          },
+          on: {
+            beforeInit: function(){
+              let numOfSlides = this.wrapperEl.querySelectorAll(".swiper-slide").length;
+              $("#allSlides").text(numOfSlides);
+              },
+            slideChange: function(){
+              var currentSlide = this.realIndex + 1;
+              var slide = this.slides[this.realIndex];
+              var currentSlideTitle = "";
+              if ( slide != undefined ) {
+                currentSlideTitle = slide.querySelector("img").getAttribute("alt");
+              }
+              else {
+               currentSlideTitle = this.el.querySelector("img").getAttribute("title");
+              }
+              console.log(slide);
+              console.log(currentSlideTitle);
+              // var currentSlideTitle = $(".swiper-slide.swiper-slide-next[data-image]").find("img").attr("title");
+              $("#currentSlide").text(currentSlide);
+              $("#currentSlideName").text(currentSlideTitle);
+            },
+            init: function(){
+              $("#currentSlide").text("1");
+              var currentSlideTitle = this.el.querySelector("img").getAttribute("alt");
+              $("#currentSlideName").text(currentSlideTitle);
+            }
+          }
+
+        });
+
+        const swiper2 = new Swiper('.swiper2', {
+          freeMode: true,
+          loop: false,
+          centeredSlides: false,
+          speed: 600,
+          spaceBetween: 16,
+          slidesPerView: 1,
+          allowTouchMove: true,
+          breakpoints: {
+            650: {
+              slidesPerView: 2,
+              spaceBetween: 16
+            },
+            992: {
+              slidesPerView: 4,
+              spaceBetween: 16
+            }
+          }
+        });
+
+         $("[data-planimetria-form]").each(function(e){
+          var form_select = $(this).find("[name=planimetria]");
+          form_select.change(function(){
+          var activeId = $(this).find("option:selected").attr("data-option-id");
+            $(`.c-modsection4__img--item`).each(function(e){
+              var sliderattr = $(this).attr("data-planimetria-id");
+              if ( sliderattr == activeId ) {
+                $(this).addClass("active");
+              }
+              else {
+                $(this).removeClass("active");
+              }
+            });
+          });
+
+        });
+
+        $("[data-lotto-id]").click(function(){
+          event.preventDefault();
+          var lottoId = $(this).attr("data-lotto-id");
+
+          $(`.c-modale__tab--item.active`).removeClass('active');
+          $(`.c-modale__tab--item[data-tab="Sezione_Planimetria"]`).addClass('active');
+
+          var activeTab = $(`.c-modale__tab--item.active`).attr("data-tab");
+        $(`div[class*="c-modsection"]`).each(function(e){
+          var sliderattr = $(this).attr("data-value");
+          if ( sliderattr == activeTab ) {
+            $(this).addClass("open");
+          }
+          else {
+            $(this).removeClass("open");
+          }
+        });
+
+          $(".c-modale.show [data-planimetria-form]").each(function(e){
+            var form_select = $(this).find("[name=planimetria]");
+            form_select.find("option").each(function(e) {
+              var activeTab = $(this).attr("data-option-id");
+              if ( lottoId == activeTab ) {
+                $(this).prop("selected",true);
+                var activeId = activeTab;
+                $(`.c-modale.show .c-modsection4__img--item`).each(function(e){
+                  var sliderattr = $(this).attr("data-planimetria-id");
+                  console.log(sliderattr);
+                  console.log(activeId);
+                  if ( sliderattr == activeId ) {
+                    $(this).addClass("active");
+                  }
+                  else {
+                    $(this).removeClass("active");
+                  }
+                });
+              }
+            });
+          });
+        });
+
+        $(".c-modale.show a[data-bs-dismiss]").on('click',function(e){
+          $(`.c-modale__tab--item.active`).removeClass('active');
+          $('.c-modale div[data-content]').html("");
+        })
     }
 });
+
 });
 
-function ModalTabActive() {
-  var activeTab = $(`.c-modale__tab--item.active`).attr("data-tab");
-    $(`div[class*="c-modsection"]`).each(function(e){
-      var sliderattr = $(this).attr("data-value");
-      if ( sliderattr == activeTab ) {
-        $(this).addClass("open");
-      }
-      else {
-        $(this).removeClass("open");
-      }
-    });
-  }
 
 });

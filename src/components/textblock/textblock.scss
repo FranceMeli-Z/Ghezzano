@@ -14,22 +14,25 @@ $cmp-tokens: ();
 &__listing {
   &--item {
     min-height: 52px;
-    padding-right: 24px;
-    padding-bottom: 0;
-    padding-top: 18px;
     font-size: 16px;
     font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     @include media-breakpoint-up(sm){
-      padding-bottom: 18px;
+      flex-direction: row;
+      align-items: center;
+    }
+    &--text {
+      display: flex;
+      align-items: center;
     }
 
     &--download {
-      font-size: 16px;
-      font-weight: 300;
-      @include media-breakpoint-down(sm){
-        text-align: right;
-        line-height: 52px;
-      }
+      display: flex;
+      max-height: 51px;
+      justify-content: end;
+
     }
   }
 }

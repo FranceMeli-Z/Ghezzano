@@ -33,7 +33,7 @@
               </span>
             </a>
           </li>
-          <li class="{{componentClassName}}__tab--item active" data-tab="Sezione_Dettagli">
+          <li class="{{componentClassName}}__tab--item" data-tab="Sezione_Dettagli">
              <span class="d-flex align-items-center">
               {{
                 Icon.content({
@@ -132,7 +132,7 @@
         </div>
 
       <div class="{{componentClassName}}__content" data-content>
-          {# {% include "partials/ui/modal_block.njk" %} #}
+          {% include "partials/ui/modal_block.njk" %}
       </div>
 
       <div class="{{componentClassName}}__footer text-center">

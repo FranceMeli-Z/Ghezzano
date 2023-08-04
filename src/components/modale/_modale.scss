@@ -25,6 +25,9 @@ $component: componentClass("modale");
     margin-bottom: 64px;
     @include media-breakpoint-down(md){
       margin-bottom: 16px;
+      margin-left: -16px;
+      margin-right: -16px;
+      padding: 0 16px;
     }
     overflow-x: auto;
     overflow-y: hidden;

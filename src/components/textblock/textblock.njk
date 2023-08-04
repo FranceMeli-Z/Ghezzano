@@ -34,11 +34,11 @@
 
       {% if (obj.listing) %}
       <div class="{{componentClassName}}__listing row gx-2 zaux-theme--light1">
-           {% for i in range(0, 10) %}
+          {% for i in range(0, 10) %}
               <div class="col-12 col-md-6">
                 {# <div class="{{componentClassName}}__listing--item border-top-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between"> #}
-                <div class="{{componentClassName}}__listing--item border-top-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between h-100">
-                  <div class="d-flex align-items-center h-100">
+                <div class="{{componentClassName}}__listing--item border-top-yellow h-100">
+                  <div class="{{componentClassName}}__listing--item--text h-100  {% if (i==8) %} pt-4 pt-sm-0 {% else %} py-4 py-sm-0 {% endif %}">
                     {{
                           Icon.content({
                             "className": ["c-icon-size-md zaux-color-set1-yellow1"],
@@ -50,15 +50,17 @@
                   </div>
                       {% if (i==8) %}
                         <div class="{{componentClassName}}__listing--item--download">
-                          <a href="">
-                            {{
-                              Icon.content({
-                                "className": ["c-icon-size-md zaux-color-set1-darkbrown"],
-                                "iconFamily": "icozaux1",
-                                "iconName": "download"
-                              })
-                            }}
-                          <span>Brochure</span>
+                          <a href="#defaultLink" class="c-btn c-btn--tertiary-dark c-btn1 c-btn1--has-icon c-btn1--size-m">
+                            <span class="c-btn__inner d-flex align-items-center">
+                              {{
+                                Icon.content({
+                                  "className": ["c-icon-size-md zaux-color-set1-darkbrown"],
+                                  "iconFamily": "icozaux1",
+                                  "iconName": "download"
+                                })
+                              }}
+                              <span class="c-btn__label ps-2">Brochure</span>
+                              </span>
                           </a>
                         </div>
                       {% endif %}
@@ -67,21 +69,21 @@
            {% endfor %}
               <div class="col-12 col-md-6">
                 <div class="{{componentClassName}}__listing--item border-top-yellow border-bottom-md-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
-                <div class="d-flex">
-                    {{
-                          Icon.content({
-                            "className": ["c-icon-size-md zaux-color-set1-yellow1"],
-                            "iconFamily": "icozaux1",
-                            "iconName": "phone"
-                          })
-                        }}
-                    <span class="c-typo-fs-8 fw-demi ps-4 pe-6 d-block">Sistema costruttivo certificato BioPLUS® Paver</span>
-                  </div>
+                  <div class="{{componentClassName}}__listing--item--text d-flex align-items-center h-100 py-4 py-sm-0">
+                      {{
+                            Icon.content({
+                              "className": ["c-icon-size-md zaux-color-set1-yellow1"],
+                              "iconFamily": "icozaux1",
+                              "iconName": "phone"
+                            })
+                          }}
+                      <span class="c-typo-fs-8 fw-demi ps-4 pe-6 d-block">Sistema costruttivo certificato BioPLUS® Paver</span>
+                    </div>
                 </div>
               </div>
               <div class="col-12 col-md-6">
-                <div class="{{componentClassName}}__listing--item border-top-yellow border-bottom-yellow d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
-                  <div class="d-flex">
+                <div class="{{componentClassName}}__listing--item border-top-yellow border-bottom-yellow">
+                  <div class="{{componentClassName}}__listing--item--text h-100 py-4 py-sm-0">
                     {{
                           Icon.content({
                             "className": ["c-icon-size-md zaux-color-set1-yellow1"],

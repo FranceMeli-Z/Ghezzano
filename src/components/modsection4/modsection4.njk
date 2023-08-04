@@ -42,7 +42,7 @@
             {% for i in range(0, 2) %}
               {% set ids = ids + 1 %}
               <div class="{{componentClassName}}__img--item {% if( ids == 1) %} active {% endif %}" data-planimetria-id="planimetria-{{ids}}">
-              {{
+              {# {{
                       Img.content({
                         "mainSrc" : '../../media/ImmgineTest.png',
                       "sourceList" : '../../media/ImmgineTest.png',
@@ -54,8 +54,10 @@
                                 "title": "title",
                                 "imgAlt": "alt"
                               })
-                    }}
+                    }} #}
+                     <iframe src="../../media/Handbook Dormi_rev2.pdf" width="800"height="500"></iframe>
               </div>
+
             {% endfor %}
             {% for i in range(0, 2) %}
               {% set ids = ids + 1 %}

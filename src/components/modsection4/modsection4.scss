@@ -10,17 +10,27 @@ $component: componentClass("modsection4");
       &.active {
         display: block;
       }
+      & iframe {
+        width: 100%;
+        max-width: 100%;
+        min-height: 75vh;
+        @include media-breakpoint-down(md) {
+          min-height: 50vh;
+          width: 50vh;
+        }
+      }
     }
   }
 
   &__form {
    & .c-form__select-modale {
-    padding: 0 16px 16px 16px;
     display: inline-block;
     & select {
       font-size: 24px;
       border: none;
       padding-right: 24px;
+      padding-bottom: 16px;
+      padding-left: 16px;
       font-family: $zaux-font2;
       appearance: none;
     }
